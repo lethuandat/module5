@@ -97,24 +97,25 @@
                 <div class="collapse navbar-collapse px-5" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 px-5">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="http://localhost:63342/case_study/index.html?_ijt=64mfh7j6adivcnb5h7p8i3r759">Home</a>
+                            <a class="nav-link active" aria-current="page"
+                               href="/index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" target="_self">Employee</a>
+                            <a class="nav-link" href="/index.html" target="_self">Employee</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
-                               href="http://localhost:63342/case_study/customer/customer.html?_ijt=5gefub71uf8dn2vrv9tvn34ld2"
+                               href="../customer/customer.html"
                                target="_self">Customer</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
-                               href="http://localhost:63342/case_study/facility/facility.html?_ijt=5gefub71uf8dn2vrv9tvn34ld2l"
+                               href="../facility/facility.html"
                                target="_self">Facility</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
-                               href="http://localhost:63342/case_study/contract/contract.html?_ijt=5gefub71uf8dn2vrv9tvn34ld2"
+                               href="../contract/contract.html"
                                target="_self">Contract</a>
                         </li>
                     </ul>
@@ -304,14 +305,14 @@
 <div class="container-fluid">
     <div class="row mt-4">
         <div class="col-lg-12" style="text-align: center">
-            <div class="container-fluid">
+
                 <div class="row">
                     <h4 style="font-size: 24px;color: #cbbe73;line-height: 36px;text-align: center;font-family:Playfair Display;font-weight:700;font-style:normal"
                         class="vc_custom_heading">Liên hệ </h4>
                 </div>
-            </div>
 
-            <div class="container-fluid">
+
+
                 <div class="row">
                     <p style="font-family: Playfair Display">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -326,7 +327,6 @@
                     <p style="font-family: Playfair Display">GDS Codes: Amadeus-GD DADFUR,
                         Galileo/Apollo-GD 16236, Sabre-GD 032771, Worldspan- GD DADFU</p>
                 </div>
-            </div>
         </div>
     </div>
 </div>
@@ -370,11 +370,11 @@
 <script>
     $(function () {
         $(window).scroll(function () {
-            if ($(this).scrollTop() > 600) $(".back-to-top").fadeIn();
+            if ($(this).scrollTop() > 666) $(".back-to-top").fadeIn();
             else $(".back-to-top").fadeOut();
         });
         $(".back-to-top").click(function () {
-            $("body,html").animate({scrollTop: 0}, "slow");
+            $("body,html").animate({scrollTop: 0}, "fast");
         });
     });
 </script>

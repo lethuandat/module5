@@ -1,5 +1,5 @@
 function fibonacciNumber(n: number): number {
-    if (n === 0 || n === 1) {
+    if (n == 0 || n == 1) {
         return 1;
     } else {
         return fibonacciNumber(n - 2) + fibonacciNumber(n - 1);
@@ -9,7 +9,7 @@ function fibonacciNumber(n: number): number {
 function isFibonacci(numb: number): boolean {
     let flag = false;
     for (let i = 0; i <= numb; i++) {
-        if (fibonacciNumber(i) === numb) {
+        if (fibonacciNumber(i) == numb) {
             flag = true;
             break;
         }
@@ -17,24 +17,19 @@ function isFibonacci(numb: number): boolean {
     return flag;
 }
 
-let array = [1, 5, 9, 2, 6, 15, 19, 35, 51, 53];
-
 let arrayFibonacci = [];
 
 let sum = 0;
 
-for (let number of array) {
-    if (isFibonacci(number)) {
-        // arrayFibonacci.push(number);
-        sum += number;
+for (let i = 0; i < 50; i++) {
+    if (isFibonacci(i)) {
+        arrayFibonacci.push(i);
+        sum += i;
     }
 }
 
-console.log(`Dãy ban đầu: `);
-for (let number of array) {
-    console.log(number)
+for (let i = 0; i < arrayFibonacci.length; i++) {
+    console.log(arrayFibonacci[i]);
 }
 
-// console.log("Dãy fibonacci: " + arrayFibonacci.toString());
-
-console.log(`Tổng các số fibonacci: ` + sum);
+console.log("Tổng số fibonacci trong mảng: " + sum);
