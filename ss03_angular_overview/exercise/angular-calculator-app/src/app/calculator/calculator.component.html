@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <h2>MÁY TÍNH ĐƠN GIẢN</h2>
+  <div class="row">
+    <div class="col-4">
+      Số thứ nhất:
+      <input class="form-control" #elementF type="number" [(ngModel)]="calculator.firstOperand">
+    </div>
+    <div class="col-4">
+      Phép toán:
+      <select class="form-select" name="" id="" #elementO [(ngModel)]="calculator.operator">
+        <option value="+">Cộng</option>
+        <option value="-">Trừ</option>
+        <option value="*">Nhân</option>
+        <option value="/">Chia</option>
+      </select>
+    </div>
+    <div class="col-4">
+      Số thứ hai:
+      <input class="form-control" #elementS type="number" [(ngModel)]="calculator.secondOperand">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <span>Kết quả: </span><span [innerText]="calculate(elementF.value, elementS.value, elementO.value)"></span>
+    </div>
+  </div>
+</div>
+

@@ -1,4 +1,7 @@
 function fibonacciNumber(n) {
+    if (n == 0) {
+        return 0;
+    }
     if (n == 0 || n == 1) {
         return 1;
     }
@@ -8,7 +11,7 @@ function fibonacciNumber(n) {
 }
 var sum = 0;
 console.log("10 số fibonacci đầu tiên là:");
-for (var i = 1; i <= 10; i++) {
+for (var i = 0; i < 10; i++) {
     console.log(fibonacciNumber(i));
     sum += fibonacciNumber(i);
 }
