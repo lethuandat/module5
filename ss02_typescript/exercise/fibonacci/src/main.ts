@@ -6,30 +6,13 @@ function fibonacciNumber(n: number): number {
     }
 }
 
-function isFibonacci(numb: number): boolean {
-    let flag = false;
-    for (let i = 0; i <= numb; i++) {
-        if (fibonacciNumber(i) == numb) {
-            flag = true;
-            break;
-        }
-    }
-    return flag;
-}
-
-let arrayFibonacci = [];
-
 let sum = 0;
 
-for (let i = 0; i < 50; i++) {
-    if (isFibonacci(i)) {
-        arrayFibonacci.push(i);
-        sum += i;
-    }
+console.log("10 số fibonacci đầu tiên là:");
+
+for (let i = 1; i <= 10; i++) {
+    console.log(fibonacciNumber(i))
+    sum += fibonacciNumber(i);
 }
 
-for (let i = 0; i < arrayFibonacci.length; i++) {
-    console.log(arrayFibonacci[i]);
-}
-
-console.log("Tổng số fibonacci trong mảng: " + sum);
+console.log("Tổng 10 số fibonacci đầu tiên: " + sum);
