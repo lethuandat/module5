@@ -3,11 +3,11 @@
   <div class="row">
     <div class="col-4">
       Số thứ nhất:
-      <input class="form-control" #elementF type="number" [(ngModel)]="calculator.firstOperand">
+      <input class="form-control" type="number" [(ngModel)]="calculator.firstOperand">
     </div>
     <div class="col-4">
       Phép toán:
-      <select class="form-select" name="" id="" #elementO [(ngModel)]="calculator.operator">
+      <select class="form-select" name="" [(ngModel)]="calculator.operator">
         <option value="+">Cộng</option>
         <option value="-">Trừ</option>
         <option value="*">Nhân</option>
@@ -16,12 +16,12 @@
     </div>
     <div class="col-4">
       Số thứ hai:
-      <input class="form-control" #elementS type="number" [(ngModel)]="calculator.secondOperand">
+      <input class="form-control" type="number" [(ngModel)]="calculator.secondOperand">
     </div>
   </div>
   <div class="row">
     <div class="col-4">
-      <span>Kết quả: </span><span [innerText]="calculate(elementF.value, elementS.value, elementO.value)"></span>
+      <span>Kết quả: </span><span [innerText]="calculate(this.calculator.firstOperand, this.calculator.secondOperand, this.calculator.operator)"></span>
     </div>
   </div>
 </div>
