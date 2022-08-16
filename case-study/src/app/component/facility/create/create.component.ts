@@ -39,4 +39,10 @@ export class CreateComponent implements OnInit {
     alert('Tạo mới thành công');
     this.router.navigate(['/facility/list']);
   }
+
+  type = "";
+
+  getType(type) {
+    this.type = type;
+  }
 }

@@ -52,4 +52,9 @@ export class EditComponent implements OnInit {
     this.router.navigate(['/facility/list']);
   }
 
+  type = "";
+
+  getType(type) {
+    this.type = type;
+  }
 }

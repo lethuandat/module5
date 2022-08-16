@@ -7,6 +7,7 @@ import {ListComponent} from "./list/list.component";
 import {CreateComponent} from "./create/create.component";
 import {EditComponent} from "./edit/edit.component";
 import {DeleteComponent} from './delete/delete.component';
+import {ConfirmationPopoverModule} from "angular-confirmation-popover";
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {DeleteComponent} from './delete/delete.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    CustomerRoutingModule
+    CustomerRoutingModule,
+    ConfirmationPopoverModule
   ]
 })
 export class CustomerModule {

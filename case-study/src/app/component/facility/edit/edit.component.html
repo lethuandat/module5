@@ -60,7 +60,7 @@
               <tr>
                 <th>Loại dịch vụ:</th>
                 <td>
-                  <select class="form-select" formControlName="facilityType" onchange="displayBonus(this)">
+                  <select class="form-select" formControlName="facilityType" (change)="getType($event.target.value)">
                     <option value="0">--Chọn loại dịch vụ--</option>
                     <option value="Villa">Villa</option>
                     <option value="House">House</option>
@@ -109,7 +109,7 @@
                 </td>
               </tr>
 
-              <tr hidden id="standardRoom">
+              <tr *ngIf="type === 'Villa' || type === 'House'" type="hidden" id="standardRoom">
                 <th>Loại phòng:</th>
                 <td>
                   <input class="form-check-input" type="radio" value="VIP" formControlName="standardRoom"> VIP
@@ -118,25 +118,25 @@
                   <input class="form-check-input" type="radio" value="Normal" formControlName="standardRoom"> Normal
                 </td>
               </tr>
-              <tr hidden id="otherDescription">
+              <tr *ngIf="type === 'Villa' || type === 'House'" type="hidden" id="otherDescription">
                 <th>Tiện nghi khác:</th>
                 <td>
                   <input class="form-control" formControlName="otherDescription" type="text"/>
                 </td>
               </tr>
-              <tr hidden id="poolArea">
+              <tr *ngIf="type === 'Villa'" type="hidden" id="poolArea">
                 <th>Diện tích hồ bơi:</th>
                 <td>
                   <input class="form-control" formControlName="poolArea" type="text"/>
                 </td>
               </tr>
-              <tr hidden id="numberFloor">
+              <tr *ngIf="type === 'Villa' || type === 'House'" type="hidden" id="numberFloor">
                 <th>Số tầng:</th>
                 <td>
                   <input class="form-control" formControlName="numberFloor" type="text"/>
                 </td>
               </tr>
-              <tr hidden id="facilityFree">
+              <tr *ngIf="type === 'Room'" type="hidden" id="facilityFree">
                 <th>Dịch vụ miễn phí đi kèm:</th>
                 <td>
                   <input class="form-control" formControlName="facilityFree" type="text"/>

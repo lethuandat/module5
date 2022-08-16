@@ -22,5 +22,5 @@ import {DeleteComponent} from './delete/delete.component';
     FacilityRoutingModule
   ]
 })
-export class CustomerModule {
+export class FacilityModule {
 }

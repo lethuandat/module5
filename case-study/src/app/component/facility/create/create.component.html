@@ -54,8 +54,8 @@
                 <tr>
                   <th>Loại dịch vụ:</th>
                   <td>
-                    <select class="form-select" formControlName="facilityType" onchange="displayBonus(this)">
-                      <option value="0">--Chọn loại dịch vụ--</option>
+                    <select class="form-select" formControlName="facilityType" (change)="getType($event.target.value)">
+                      <option value="0" selected>--Chọn loại dịch vụ--</option>
                       <option value="Villa">Villa</option>
                       <option value="House">House</option>
                       <option value="Room">Room</option>
@@ -94,7 +94,7 @@
                   <th>Kiểu thuê:</th>
                   <td>
                     <select class="form-select" formControlName="rentType">
-                      <option value="0">--Chọn kiểu thuê--</option>
+                      <option value="0" selected>--Chọn kiểu thuê--</option>
                       <option value="Giờ">Giờ</option>
                       <option value="Ngày">Ngày</option>
                       <option value="Tháng">Tháng</option>
@@ -103,7 +103,7 @@
                   </td>
                 </tr>
 
-                <tr hidden id="standardRoom">
+                <tr id="standardRoom" *ngIf="type === 'Villa' || type === 'House'" type="hidden">
                   <th>Loại phòng:</th>
                   <td>
                     <input class="form-check-input" type="radio" value="VIP" formControlName="standardRoom"> VIP
@@ -114,25 +114,25 @@
                     <input class="form-check-input" type="radio" value="Normal" formControlName="standardRoom"> Normal
                   </td>
                 </tr>
-                <tr hidden id="otherDescription">
+                <tr id="otherDescription" *ngIf="type === 'Villa' || type === 'House'" type="hidden">
                   <th>Tiện nghi khác:</th>
                   <td>
                     <input class="form-control" formControlName="otherDescription" type="text"/>
                   </td>
                 </tr>
-                <tr hidden id="poolArea">
+                <tr id="poolArea" *ngIf="type === 'Villa'" type="hidden">
                   <th>Diện tích hồ bơi:</th>
                   <td>
                     <input class="form-control" formControlName="poolArea" type="text"/>
                   </td>
                 </tr>
-                <tr hidden id="numberFloor">
+                <tr id="numberFloor" *ngIf="type === 'Villa' || type === 'House'" type="hidden">
                   <th>Số tầng:</th>
                   <td>
                     <input class="form-control" formControlName="numberFloor" type="text"/>
                   </td>
                 </tr>
-                <tr hidden id="facilityFree">
+                <tr id="facilityFree" *ngIf="type === 'Room'" type="hidden">
                   <th>Dịch vụ miễn phí đi kèm:</th>
                   <td>
                     <input class="form-control" formControlName="facilityFree" type="text"/>
@@ -155,7 +155,7 @@
                   </td>
                   <td align="left">
                     <button class="btn btn-outline-primary">
-                      Cập nhật
+                      Thêm mới
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                            fill="currentColor" class="bi bi-save" viewBox="0 0 16 16">
                         <path
@@ -174,32 +174,3 @@
 
   </div>
 </div>
-<script>
-  function displayBonus(facilityTypeId) {
-    if (facilityTypeId.value == 1) {
-      document.getElementById("standardRoom").hidden = false;
-      document.getElementById("otherDescription").hidden = false;
-      document.getElementById("poolArea").hidden = false;
-      document.getElementById("numberFloor").hidden = false;
-      document.getElementById("facilityFree").hidden = true;
-    } else if (facilityTypeId.value == 2) {
-      document.getElementById("standardRoom").hidden = false;
-      document.getElementById("otherDescription").hidden = false;
-      document.getElementById("poolArea").hidden = true;
-      document.getElementById("numberFloor").hidden = false;
-      document.getElementById("facilityFree").hidden = true;
-    } else if (facilityTypeId.value == 3) {
-      document.getElementById("standardRoom").hidden = true;
-      document.getElementById("otherDescription").hidden = true;
-      document.getElementById("poolArea").hidden = true;
-      document.getElementById("numberFloor").hidden = true;
-      document.getElementById("facilityFree").hidden = false;
-    } else {
-      document.getElementById("standardRoom").hidden = true;
-      document.getElementById("otherDescription").hidden = true;
-      document.getElementById("poolArea").hidden = true;
-      document.getElementById("numberFloor").hidden = true;
-      document.getElementById("facilityFree").hidden = true;
-    }
-  }
-</script>

@@ -55,6 +55,9 @@
                   <th>Tên khách hàng:</th>
                   <td>
                     <input type="text" formControlName="name" class="form-control">
+                    <div class="text-danger" *ngFor="let validation of validationMessage.name">
+                      <span *ngIf="customerForm.get('name').hasError(validation.type)">{{validation.message}}</span>
+                    </div>
                   </td>
 
                 </tr>
@@ -62,6 +65,9 @@
                   <th>Ngày sinh:</th>
                   <td>
                     <input type="date" formControlName="birthDay" class="form-control">
+                    <div class="text-danger" *ngFor="let validation of validationMessage.birthDay">
+                      <span *ngIf="customerForm.get('birthDay').hasError(validation.type)">{{validation.message}}</span>
+                    </div>
                   </td>
 
                 </tr>
@@ -71,6 +77,9 @@
                     <input type="radio" class="form-check-inline" value="Nam" formControlName="gender">Nam
                     <input type="radio" class="form-check-inline" value="Nữ" formControlName="gender">Nữ
                     <input type="radio" class="form-check-inline" value="Khác" formControlName="gender">Khác
+                    <div class="text-danger" *ngFor="let validation of validationMessage.gender">
+                      <span *ngIf="customerForm.get('gender').hasError(validation.type)">{{validation.message}}</span>
+                    </div>
                   </td>
 
                 </tr>
@@ -78,24 +87,36 @@
                   <th>Số CMND:</th>
                   <td>
                     <input type="text" formControlName="idCard" class="form-control">
+                    <div class="text-danger" *ngFor="let validation of validationMessage.idCard">
+                      <span *ngIf="customerForm.get('idCard').hasError(validation.type)">{{validation.message}}</span>
+                    </div>
                   </td>
                 </tr>
                 <tr>
                   <th>Địa chỉ:</th>
                   <td>
                     <input class="form-control" formControlName="address" type="text">
+                    <div class="text-danger" *ngFor="let validation of validationMessage.address">
+                      <span *ngIf="customerForm.get('address').hasError(validation.type)">{{validation.message}}</span>
+                    </div>
                   </td>
                 </tr>
                 <tr>
                   <th>Email:</th>
                   <td>
                     <input class="form-control" formControlName="email" type="text">
+                    <div class="text-danger" *ngFor="let validation of validationMessage.email">
+                      <span *ngIf="customerForm.get('email').hasError(validation.type)">{{validation.message}}</span>
+                    </div>
                   </td>
                 </tr>
                 <tr>
                   <th>Số điện thoại:</th>
                   <td>
                     <input class="form-control" formControlName="phone" type="text">
+                    <div class="text-danger" *ngFor="let validation of validationMessage.phone">
+                      <span *ngIf="customerForm.get('phone').hasError(validation.type)">{{validation.message}}</span>
+                    </div>
                   </td>
                 </tr>
                 <tr>
@@ -109,6 +130,9 @@
                       <option value="Gold">Silver</option>
                       <option value="Member">Member</option>
                     </select>
+                    <div class="text-danger" *ngFor="let validation of validationMessage.type">
+                      <span *ngIf="customerForm.get('type').hasError(validation.type)">{{validation.message}}</span>
+                    </div>
                   </td>
                 </tr>
                 <tr>

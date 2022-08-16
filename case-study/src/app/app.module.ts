@@ -6,6 +6,7 @@ import {AppComponent} from './app.component';
 import {HeaderComponent} from './component/header/header.component';
 import {FooterComponent} from './component/footer/footer.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {ConfirmationPopoverModule} from "angular-confirmation-popover";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,10 @@ import {ReactiveFormsModule} from "@angular/forms";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

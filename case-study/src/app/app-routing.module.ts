@@ -13,11 +13,11 @@ const routes: Routes = [
   },
   {
     path: 'facility',
-    loadChildren: () => import('./component/facility/facility.module').then(module => module.CustomerModule)
+    loadChildren: () => import('./component/facility/facility.module').then(module => module.FacilityModule)
   },
   {
     path: 'contract',
-    loadChildren: () => import('./component/contract/contract.module').then(module => module.CustomerModule)
+    loadChildren: () => import('./component/contract/contract.module').then(module => module.ContractModule)
   }
 ];
 
