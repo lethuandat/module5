@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Article } from '../article';
+import {Component, OnInit} from '@angular/core';
+import {Article} from '../article';
 
 @Component({
   selector: 'app-article',
@@ -37,7 +37,8 @@ export class ArticleComponent implements OnInit {
     this.articles.push(this.article);
   }
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
