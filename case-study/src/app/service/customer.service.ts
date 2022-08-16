@@ -19,7 +19,8 @@ export class CustomerService {
     email: "nam@gmail.com",
     address: "Đà Nẵng",
     type: "Gold"
-  }, {
+  },
+    {
     id: 2,
     name: "Lê Thị Linh",
     birthDay: "20-12-1990",

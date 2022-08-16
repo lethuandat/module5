@@ -13,16 +13,20 @@ export class CalculatorComponent implements OnInit {
     operator: '-'
   };
 
-  calculate(firstOperand, secondOperand, operator) {
-    switch (operator) {
+  calculate() {
+    switch (this.calculator.operator) {
       case '+':
-        return Number(firstOperand) + Number(secondOperand);
+        return Number(this.calculator.firstOperand) + Number(this.calculator.secondOperand);
       case '-':
-        return firstOperand - secondOperand;
+        return this.calculator.firstOperand - this.calculator.secondOperand;
       case '*':
-        return firstOperand * secondOperand;
+        return this.calculator.firstOperand * this.calculator.secondOperand;
       case '/':
-        return firstOperand / secondOperand;
+        if (this.calculator.secondOperand === 0) {
+          return 'Không thể chia cho 0';
+        } else {
+          return this.calculator.firstOperand / this.calculator.secondOperand;
+        }
     }
   }
 

@@ -40,7 +40,7 @@
 
     <div class="col-lg-10 mt-4">
       <div class="row">
-        <h3 align="center">DANH SÁCH KHÁCH HÀNG</h3>
+        <h3 align="center">DANH SÁCH DỊCH VỤ</h3>
       </div>
 
       <div class="row">
@@ -62,7 +62,7 @@
 
         <div class="col-lg-6">
           <div class="float-end">
-            <a routerLink="/customer/create">
+            <a routerLink="/facility/create">
               <button type="button" class="btn btn-outline-primary">
                 Thêm mới
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -86,30 +86,36 @@
           <thead>
           <tr class="table-success">
             <th>STT</th>
-            <th>Loại khách</th>
             <th>Tên</th>
-            <th>Ngày sinh</th>
-            <th>Giới tính</th>
-            <th>Số CMND</th>
-            <th>Số điện thoại</th>
-            <th>Email</th>
-            <th>Địa chỉ</th>
+            <th>Diện tích</th>
+            <th>Giá thuê</th>
+            <th>Số người</th>
+            <th>Kiểu thuê</th>
+            <th>Loại dịch vụ</th>
+            <th>Tiêu chuẩn phòng</th>
+            <th>Chi tiết khác</th>
+            <th>Hồ bơi</th>
+            <th>Số tầng</th>
+            <th>Dịch vụ miễn phí</th>
             <th colspan="2"></th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let customer of customers; index as i">
+          <tr *ngFor="let facility of facilities; index as i">
             <td>{{i + 1}}</td>
-            <td>{{customer.type}}</td>
-            <td>{{customer.name}}</td>
-            <td>{{customer.birthDay}}</td>
-            <td>{{customer.gender}}</td>
-            <td>{{customer.idCard}}</td>
-            <td>{{customer.phone}}</td>
-            <td>{{customer.email}}</td>
-            <td>{{customer.address}}</td>
+            <td>{{facility.name}}</td>
+            <td>{{facility.area}}</td>
+            <td>{{facility.cost}}</td>
+            <td>{{facility.maxPeople}}</td>
+            <td>{{facility.rentType}}</td>
+            <td>{{facility.facilityType}}</td>
+            <td>{{facility.standardRoom}}</td>
+            <td>{{facility.otherDescription}}</td>
+            <td>{{facility.poolArea}}</td>
+            <td>{{facility.numberFloor}}</td>
+            <td>{{facility.facilityFree}}</td>
             <td>
-              <a [routerLink]="['/customer/edit', customer.id]">
+              <a [routerLink]="['/facility/edit', facility.id]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                      class="bi bi-pencil" viewBox="0 0 16 16">
                   <path
@@ -133,8 +139,8 @@
         </table>
       </div>
 
-
     </div>
 
   </div>
 </div>
+

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {CustomerService} from "../../../service/customer.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create',
@@ -21,7 +22,8 @@ export class CreateComponent implements OnInit {
     type: new FormControl(),
   });
 
-  constructor(private customerService: CustomerService) {
+  constructor(private customerService: CustomerService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -32,5 +34,6 @@ export class CreateComponent implements OnInit {
     this.customerService.save(customer);
     this.customerForm.reset();
     alert('Tạo mới thành công');
+    this.router.navigate(['/customer/list']);
   }
 }

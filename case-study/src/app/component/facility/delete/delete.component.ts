@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from "@angular/forms";
 import {CustomerService} from "../../../service/customer.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FacilityService} from "../../../service/facility.service";
 
 @Component({
   selector: 'app-delete',
@@ -10,20 +11,20 @@ import {FormControl, FormGroup} from "@angular/forms";
 })
 export class DeleteComponent implements OnInit {
 
-  customerForm: FormGroup;
+  facilityForm: FormGroup;
   id: number;
 
   constructor(
-    private customerService: CustomerService,
+    private facilityService: FacilityService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
-      const customer = this.findById(this.id);
-      this.customerForm = new FormGroup({
-        id: new FormControl(customer.id),
-        name: new FormControl(customer.name)
+      const facility = this.findById(this.id);
+      this.facilityForm = new FormGroup({
+        id: new FormControl(facility.id),
+        name: new FormControl(facility.name)
       });
     });
   }
@@ -31,12 +32,13 @@ export class DeleteComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   findById(id: number) {
-    return this.customerService.findById(id);
+    return this.facilityService.findById(id);
   }
 
-  delete(id: number) {
-    this.customerService.delete(id);
-    this.router.navigate(['/customer/list']);
+  deleteProduct(id: number) {
+    this.facilityService.delete(id);
+    this.router.navigate(['/facility/list']);
   }
 }
