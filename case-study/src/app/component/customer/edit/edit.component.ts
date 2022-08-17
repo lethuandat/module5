@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {CustomerService} from "../../../service/customer.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {CustomerType} from "../../../model/customer-type";
+import {CustomerTypeService} from "../../../service/customer-type.service";
 
 @Component({
   selector: 'app-edit',
@@ -15,6 +17,7 @@ export class EditComponent implements OnInit {
 
   constructor(
     private customerService: CustomerService,
+    private customerTypeService: CustomerTypeService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
@@ -34,6 +37,8 @@ export class EditComponent implements OnInit {
       });
     });
   }
+
+  customerType: CustomerType[] = this.customerTypeService.getAll();
 
   ngOnInit(): void {
   }

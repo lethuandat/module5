@@ -12,6 +12,10 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 export class ListComponent implements OnInit {
 
   facilities: Facility[] = [];
+
+  page = 1;
+  pageSize = 6;
+
   deleteId: number;
   deleteName: string;
 

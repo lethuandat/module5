@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {CustomerService} from "../../../service/customer.service";
 import {Router} from "@angular/router";
+import {CustomerTypeService} from "../../../service/customer-type.service";
+import {CustomerType} from "../../../model/customer-type";
 
 
 @Component({
@@ -12,7 +14,7 @@ import {Router} from "@angular/router";
 export class CreateComponent implements OnInit {
 
   customerForm: FormGroup = new FormGroup({
-    id: new FormControl(),
+    id: new FormControl(Math.floor(Math.random() * 1000)),
     name: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-Zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+(\\s[a-zA-Zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+)*$")]),
     birthDay: new FormControl('', [Validators.required]),
     gender: new FormControl('', [Validators.required]),
@@ -23,8 +25,10 @@ export class CreateComponent implements OnInit {
     type: new FormControl('', [Validators.required]),
   });
 
+  customerType: CustomerType[] = this.customerTypeService.getAll();
 
   constructor(private customerService: CustomerService,
+              private customerTypeService: CustomerTypeService,
               private router: Router) {
   }
 

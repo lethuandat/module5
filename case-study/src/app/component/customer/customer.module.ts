@@ -8,6 +8,7 @@ import {CreateComponent} from "./create/create.component";
 import {EditComponent} from "./edit/edit.component";
 import {DeleteComponent} from './delete/delete.component';
 import {ConfirmationPopoverModule} from "angular-confirmation-popover";
+import {NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {ConfirmationPopoverModule} from "angular-confirmation-popover";
     CommonModule,
     ReactiveFormsModule,
     CustomerRoutingModule,
-    ConfirmationPopoverModule
+    ConfirmationPopoverModule,
+    NgbPaginationModule
   ]
 })
 export class CustomerModule {

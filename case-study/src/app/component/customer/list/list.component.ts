@@ -14,6 +14,9 @@ export class ListComponent implements OnInit {
   deleteId: number;
   deleteName: string;
 
+  page = 1;
+  pageSize = 10;
+
   constructor(private customerService: CustomerService,
               private modalService: NgbModal) { }
 
@@ -42,4 +45,6 @@ export class ListComponent implements OnInit {
     this.ngOnInit();
     this.modalService.dismissAll();
   }
+
+
 }

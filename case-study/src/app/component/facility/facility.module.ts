@@ -7,7 +7,7 @@ import {ListComponent} from "./list/list.component";
 import {CreateComponent} from "./create/create.component";
 import {EditComponent} from "./edit/edit.component";
 import {DeleteComponent} from './delete/delete.component';
-
+import {NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import {DeleteComponent} from './delete/delete.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FacilityRoutingModule
+    FacilityRoutingModule,
+    NgbPaginationModule
   ]
 })
 export class FacilityModule {

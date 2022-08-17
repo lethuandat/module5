@@ -123,12 +123,8 @@
                   <th>Loại khách hàng:</th>
                   <td>
                     <select class="form-select" formControlName="type">
-                      <option value="0" selected>--Chọn loại khách hàng--</option>
-                      <option value="Diamond">Diamond</option>
-                      <option value="Platinum">Platinum</option>
-                      <option value="Gold">Gold</option>
-                      <option value="Gold">Silver</option>
-                      <option value="Member">Member</option>
+                      <option [ngValue]="null" disabled>--Chọn loại khách hàng--</option>
+                      <option *ngFor="let item of customerType" [ngValue]="item">{{item.name}}</option>
                     </select>
                     <div class="text-danger" *ngFor="let validation of validationMessage.type">
                       <span *ngIf="customerForm.get('type').hasError(validation.type)">{{validation.message}}</span>

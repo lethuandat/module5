@@ -15,7 +15,7 @@ import {FacilityService} from "../../../service/facility.service";
 export class CreateComponent implements OnInit {
 
   contractForm: FormGroup = new FormGroup({
-    id: new FormControl(),
+    id: new FormControl(Math.floor(Math.random() * 1000)),
     customer: new FormControl('', [Validators.required]),
     facility: new FormControl('', [Validators.required]),
     startDate: new FormControl('', [Validators.required]),

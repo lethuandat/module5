@@ -82,7 +82,7 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-4" *ngFor="let facility of facilities">
+        <div class="col-lg-4" *ngFor="let facility of facilities | slice: (page - 1) * pageSize : (page - 1) * pageSize + pageSize">
           <div class="card mt-5" style="width: 18rem;">
             <img [src]="facility.image" class="card-img-top" alt="...">
             <div class="card-body">
@@ -112,8 +112,9 @@
             </div>
           </div>
         </div>
-
       </div>
+      <ngb-pagination class="d-flex justify-content-center" [(page)]="page" [pageSize]="pageSize"
+                      [collectionSize]="facilities.length"></ngb-pagination>
     </div>
   </div>
   <ng-template #contentDelete let-modal>

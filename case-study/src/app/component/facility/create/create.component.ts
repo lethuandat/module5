@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 export class CreateComponent implements OnInit {
 
   facilityForm: FormGroup = new FormGroup({
-    id: new FormControl(),
+    id: new FormControl(Math.floor(Math.random() * 1000)),
     name: new FormControl('', [Validators.required, Validators.pattern("^([A-Z\\p{L}]{1}[a-z\\p{L}]*)+(\\s([A-Z\\p{L}]{1}[a-z\\p{L}]*))*$")]),
     area: new FormControl('', [Validators.required, Validators.pattern("^[1-9]+\\d*")]),
     cost: new FormControl('', [Validators.required, Validators.pattern("^[1-9]+\\d*")]),

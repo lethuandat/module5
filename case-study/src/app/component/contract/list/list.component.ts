@@ -11,6 +11,9 @@ export class ListComponent implements OnInit {
 
   contracts: Contract[] = [];
 
+  page = 1;
+  pageSize = 10;
+
   constructor(private contractService: ContractService) {
   }
 

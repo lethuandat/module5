@@ -8,6 +8,7 @@ import {FooterComponent} from './component/footer/footer.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+
 @NgModule({
   declarations: [
     AppComponent,
