@@ -1,11 +1,20 @@
-<h1>Countdown Timer</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <h1 class="text-primary">Countdown Timer</h1>
 
-<div class="group-actions">
-  <button (click)="start()">Start</button>
-  <button (click)="stop()">Stop</button>
-  <button (click)="reset()">Reset</button>
+      <div align="center" class="group-actions">
+        <button class="btn btn-outline-primary me-3" (click)="start()">Start</button>
+        <button class="btn btn-outline-danger me-3" (click)="stop()">Stop</button>
+        <button class="btn btn-outline-secondary me-3" (click)="reset()">Reset</button>
+      </div>
+      <div align="center" class="timer">
+        <h3 class="timer-text text-primary">{{ remainingTime }}</h3>
+      </div>
+      <p align="center" class="text-primary">{{ message }}</p>
+    </div>
+    <div class="col-4"></div>
+  </div>
 </div>
-<div class="timer">
-  <span class="timer-text">{{ remainingTime }}</span>
-</div>
-<p>{{ message }}</p>
+

@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Customer} from "../model/customer";
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,16 +22,16 @@ export class CustomerService {
     type: "Gold"
   },
     {
-    id: 2,
-    name: "Lê Thị Linh",
-    birthDay: "20-12-1990",
-    gender: "Nữ",
-    idCard: "982379821",
-    phone: "0911111111",
-    email: "nam@gmail.com",
-    address: "Đà Nẵng",
-    type: "Gold"
-  },
+      id: 2,
+      name: "Lê Thị Linh",
+      birthDay: "20-12-1990",
+      gender: "Nữ",
+      idCard: "982379821",
+      phone: "0911111111",
+      email: "nam@gmail.com",
+      address: "Đà Nẵng",
+      type: "Gold"
+    },
     {
       id: 3,
       name: "Lê Văn Bình",

@@ -56,8 +56,11 @@
                   <td>
                     <select class="form-select" formControlName="facility">
                       <option value="0" selected>--Chọn dịch vụ--</option>
-                      <option *ngFor="let facility of facilities" [value]="facility.id">{{facility.name}}</option>
+                      <option *ngFor="let facility of facilities" [ngValue]="facility">{{facility.name}}</option>
                     </select>
+                    <div class="text-danger" *ngFor="let validation of validationMessage.facility">
+                      <span *ngIf="contractForm.get('facility').hasError(validation.type)">{{validation.message}}</span>
+                    </div>
                   </td>
                 </tr>
                 <tr>
@@ -65,14 +68,20 @@
                   <td>
                     <select class="form-select" formControlName="customer">
                       <option value="0">--Chọn khách hàng--</option>
-                      <option *ngFor="let customer of customers" [value]="customer.id">{{customer.name}}</option>
+                      <option *ngFor="let customer of customers" [ngValue]="customer">{{customer.name}}</option>
                     </select>
+                    <div class="text-danger" *ngFor="let validation of validationMessage.customer">
+                      <span *ngIf="contractForm.get('customer').hasError(validation.type)">{{validation.message}}</span>
+                    </div>
                   </td>
                 </tr>
                 <tr>
                   <th>Ngày làm hợp đồng:</th>
                   <td>
                     <input type="date" class="form-control" formControlName="startDate">
+                    <div class="text-danger" *ngFor="let validation of validationMessage.startDate">
+                      <span *ngIf="contractForm.get('startDate').hasError(validation.type)">{{validation.message}}</span>
+                    </div>
                   </td>
 
                 </tr>
@@ -80,6 +89,9 @@
                   <th>Ngày kết thúc hợp đồng:</th>
                   <td>
                     <input type="date" class="form-control" formControlName="endDate">
+                    <div class="text-danger" *ngFor="let validation of validationMessage.endDate">
+                      <span *ngIf="contractForm.get('endDate').hasError(validation.type)">{{validation.message}}</span>
+                    </div>
                   </td>
 
                 </tr>
@@ -87,6 +99,9 @@
                   <th>Tiền đặt cọc:</th>
                   <td>
                     <input type="number" class="form-control" formControlName="deposit">
+                    <div class="text-danger" *ngFor="let validation of validationMessage.deposit">
+                      <span *ngIf="contractForm.get('deposit').hasError(validation.type)">{{validation.message}}</span>
+                    </div>
                   </td>
                 </tr>
 

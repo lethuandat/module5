@@ -22,7 +22,8 @@ export class FacilityService {
       otherDescription: "Có hồ bơi",
       poolArea: 60,
       numberFloor: 4,
-      facilityFree: "N/A"
+      facilityFree: "N/A",
+      image: "../../../../assets/images/r1.PNG"
     },
     {
       id: 2,
@@ -36,7 +37,8 @@ export class FacilityService {
       otherDescription: "Có hồ bơi",
       poolArea: 60,
       numberFloor: 4,
-      facilityFree: "N/A"
+      facilityFree: "N/A",
+      image: "../../../../assets/images/r2.PNG"
     },
     {
       id: 3,
@@ -50,7 +52,8 @@ export class FacilityService {
       otherDescription: "Có hồ bơi",
       poolArea: 60,
       numberFloor: 4,
-      facilityFree: "N/A"
+      facilityFree: "N/A",
+      image: "../../../../assets/images/r3.PNG"
     },
     {
       id: 4,
@@ -64,7 +67,38 @@ export class FacilityService {
       otherDescription: "Có hồ bơi",
       poolArea: 60,
       numberFloor: 4,
-      facilityFree: "N/A"
+      facilityFree: "N/A",
+      image: "../../../../assets/images/r4.PNG"
+    },
+    {
+      id: 5,
+      name: "Phòng suite hướng biển",
+      area: 300,
+      cost: 500,
+      maxPeople: 4,
+      rentType: "Ngày",
+      facilityType: "Villa",
+      standardRoom: "VIP",
+      otherDescription: "Có hồ bơi",
+      poolArea: 60,
+      numberFloor: 4,
+      facilityFree: "N/A",
+      image: "../../../../assets/images/r5.PNG"
+    },
+    {
+      id: 6,
+      name: "Phòng suite hướng biển",
+      area: 300,
+      cost: 500,
+      maxPeople: 4,
+      rentType: "Ngày",
+      facilityType: "Villa",
+      standardRoom: "VIP",
+      otherDescription: "Có hồ bơi",
+      poolArea: 60,
+      numberFloor: 4,
+      facilityFree: "N/A",
+      image: "../../../../assets/images/r6.PNG"
     }
   ];
 

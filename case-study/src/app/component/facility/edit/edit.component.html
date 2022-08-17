@@ -66,12 +66,18 @@
                     <option value="House">House</option>
                     <option value="Room">Room</option>
                   </select>
+                  <div class="text-danger" *ngFor="let validation of validationMessage.facilityType">
+                    <span *ngIf="facilityForm.get('facilityType').hasError(validation.type)">{{validation.message}}</span>
+                  </div>
                 </td>
               </tr>
               <tr>
                 <th>Tên dịch vụ:</th>
                 <td>
                   <input type="text" formControlName="name" class="form-control">
+                  <div class="text-danger" *ngFor="let validation of validationMessage.name">
+                    <span *ngIf="facilityForm.get('name').hasError(validation.type)">{{validation.message}}</span>
+                  </div>
                 </td>
 
               </tr>
@@ -79,6 +85,9 @@
                 <th>Diện tích:</th>
                 <td>
                   <input type="text" formControlName="area" class="form-control">
+                  <div class="text-danger" *ngFor="let validation of validationMessage.area">
+                    <span *ngIf="facilityForm.get('area').hasError(validation.type)">{{validation.message}}</span>
+                  </div>
                 </td>
 
               </tr>
@@ -86,6 +95,9 @@
                 <th>Giá thuê:</th>
                 <td>
                   <input type="text" formControlName="cost" class="form-control">
+                  <div class="text-danger" *ngFor="let validation of validationMessage.cost">
+                    <span *ngIf="facilityForm.get('cost').hasError(validation.type)">{{validation.message}}</span>
+                  </div>
                 </td>
 
               </tr>
@@ -93,6 +105,9 @@
                 <th>Số người tối đa:</th>
                 <td>
                   <input type="text" formControlName="maxPeople" class="form-control">
+                  <div class="text-danger" *ngFor="let validation of validationMessage.maxPeople">
+                    <span *ngIf="facilityForm.get('maxPeople').hasError(validation.type)">{{validation.message}}</span>
+                  </div>
                 </td>
 
               </tr>
@@ -106,6 +121,9 @@
                     <option value="Tháng">Tháng</option>
                     <option value="Năm">Năm</option>
                   </select>
+                  <div class="text-danger" *ngFor="let validation of validationMessage.rentType">
+                    <span *ngIf="facilityForm.get('rentType').hasError(validation.type)">{{validation.message}}</span>
+                  </div>
                 </td>
               </tr>
 
@@ -128,12 +146,18 @@
                 <th>Diện tích hồ bơi:</th>
                 <td>
                   <input class="form-control" formControlName="poolArea" type="text"/>
+                  <div class="text-danger" *ngFor="let validation of validationMessage.poolArea">
+                    <span *ngIf="facilityForm.get('poolArea').hasError(validation.type)">{{validation.message}}</span>
+                  </div>
                 </td>
               </tr>
               <tr *ngIf="type === 'Villa' || type === 'House'" type="hidden" id="numberFloor">
                 <th>Số tầng:</th>
                 <td>
                   <input class="form-control" formControlName="numberFloor" type="text"/>
+                  <div class="text-danger" *ngFor="let validation of validationMessage.numberFloor">
+                    <span *ngIf="facilityForm.get('numberFloor').hasError(validation.type)">{{validation.message}}</span>
+                  </div>
                 </td>
               </tr>
               <tr *ngIf="type === 'Room'" type="hidden" id="facilityFree">
