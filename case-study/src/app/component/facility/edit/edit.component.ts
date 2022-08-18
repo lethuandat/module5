@@ -30,7 +30,8 @@ export class EditComponent implements OnInit {
         otherDescription: new FormControl(facility.otherDescription),
         poolArea: new FormControl(facility.poolArea, [Validators.required, Validators.pattern("^[1-9]+\\d*")]),
         numberFloor: new FormControl(facility.numberFloor, [Validators.required, Validators.pattern("^[1-9]+\\d*")]),
-        facilityFree: new FormControl(facility.facilityFree)
+        facilityFree: new FormControl(facility.facilityFree),
+        image: new FormControl(facility.image)
       });
     });
   }

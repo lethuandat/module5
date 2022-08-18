@@ -47,9 +47,8 @@
           </tr>
           <tr>
             <h5>Age:</h5>
-            <input name="age" type="text" class="form-control" formControlName="age">
+            <input name="age" type="number" class="form-control" formControlName="age">
             <span *ngIf="registerForm.controls.age.hasError('required') && registerForm.controls.age.touched">*Please input age!</span>
-            <span *ngIf="registerForm.controls.age.hasError('pattern') && registerForm.controls.age.touched">*Age wrong format!</span>
             <span
               *ngIf="registerForm.controls.age.hasError('min') && registerForm.controls.age.touched">*Age must > 18!</span>
             <span

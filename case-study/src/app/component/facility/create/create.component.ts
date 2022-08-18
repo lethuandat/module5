@@ -23,6 +23,7 @@ export class CreateComponent implements OnInit {
     poolArea: new FormControl('', [Validators.pattern("^[1-9]+\\d*")]),
     numberFloor: new FormControl('', [Validators.pattern("^[1-9]+\\d*")]),
     facilityFree: new FormControl(),
+    image: new FormControl('../../../../assets/images/')
   });
 
   constructor(private facilityService: FacilityService,

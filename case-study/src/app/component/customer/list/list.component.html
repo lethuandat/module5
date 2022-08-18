@@ -103,7 +103,7 @@
             <td>{{i + 1 + (page - 1) * pageSize}}</td>
             <td>{{customer.type.name}}</td>
             <td>{{customer.name}}</td>
-            <td>{{customer.birthDay}}</td>
+            <td>{{customer.birthDay | date: 'dd/MM/yyyy'}}</td>
             <td>{{customer.gender}}</td>
             <td>{{customer.idCard}}</td>
             <td>{{customer.phone}}</td>

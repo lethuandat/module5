@@ -55,7 +55,7 @@
                   <th>Dịch vụ:</th>
                   <td>
                     <select class="form-select" formControlName="facility">
-                      <option value="0" selected>--Chọn dịch vụ--</option>
+                      <option [ngValue]="null">--Chọn dịch vụ--</option>
                       <option *ngFor="let facility of facilities" [ngValue]="facility">{{facility.name}}</option>
                     </select>
                     <div class="text-danger" *ngFor="let validation of validationMessage.facility">
@@ -67,7 +67,7 @@
                   <th>Khách hàng:</th>
                   <td>
                     <select class="form-select" formControlName="customer">
-                      <option value="0">--Chọn khách hàng--</option>
+                      <option [ngValue]="null">--Chọn khách hàng--</option>
                       <option *ngFor="let customer of customers" [ngValue]="customer">{{customer.name}}</option>
                     </select>
                     <div class="text-danger" *ngFor="let validation of validationMessage.customer">

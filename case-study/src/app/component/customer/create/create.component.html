@@ -123,7 +123,7 @@
                   <th>Loại khách hàng:</th>
                   <td>
                     <select class="form-select" formControlName="type">
-                      <option [ngValue]="null" disabled>--Chọn loại khách hàng--</option>
+                      <option [ngValue]="null">--Chọn loại khách hàng--</option>
                       <option *ngFor="let item of customerType" [ngValue]="item">{{item.name}}</option>
                     </select>
                     <div class="text-danger" *ngFor="let validation of validationMessage.type">
