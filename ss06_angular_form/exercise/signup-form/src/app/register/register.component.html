@@ -1,0 +1,88 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col-6">
+      <div>
+        <h2 align="center">SIGN-UP</h2>
+      </div>
+      <form [formGroup]="registerForm" (ngSubmit)="submit()">
+        <table class="table table-striped">
+          <tr>
+            <h5>Email:</h5>
+            <input type="text" class="form-control" formControlName="email">
+            <span *ngIf="registerForm.controls.email.hasError('required') && registerForm.controls.email.touched">*Please input email!</span>
+            <span *ngIf="registerForm.controls.email.hasError('email') && registerForm.controls.email.touched">*Email wrong format!</span>
+          </tr>
+          <tr>
+            <h5>Password:</h5>
+            <input type="password" class="form-control" name="password" formControlName="password">
+            <span *ngIf="registerForm.controls.password.hasError('required') && registerForm.controls.password.touched">*Please input password!</span>
+            <span
+              *ngIf="registerForm.controls.password.hasError('minlength') && registerForm.controls.password.touched">*Password more than 6 characters!</span>
+          </tr>
+          <tr>
+            <h5>Confirm password:</h5>
+            <input type="password" class="form-control" name="confirmPassword" formControlName="confirmPassword">
+            <p
+              *ngIf="registerForm.controls.confirmPassword.hasError('required') && registerForm.controls.confirmPassword.touched">
+              *Please input confirm password!</p>
+            <p *ngIf="registerForm.controls.password.hasError('minlength') && registerForm.controls.password.touched">
+              *Password more than 6 characters!</p>
+
+            <p
+              *ngIf="registerForm.hasError('password') && registerForm.controls.confirmPassword.touched">*Confirm
+              password not same password!</p>
+
+          </tr>
+          <tr>
+            <h5>Country:</h5>
+            <select class="form-select" name="country" formControlName="country">
+              <option value="" selected>--Select country--</option>
+              <option value="Vietnam">Vietnam</option>
+              <option value="England">England</option>
+              <option value="Japanese">Japanese</option>
+            </select>
+            <span *ngIf="registerForm.controls.country.hasError('required') && registerForm.controls.country.touched">*Please select country!</span>
+          </tr>
+          <tr>
+            <h5>Age:</h5>
+            <input name="age" type="text" class="form-control" formControlName="age">
+            <span *ngIf="registerForm.controls.age.hasError('required') && registerForm.controls.age.touched">*Please input age!</span>
+            <span *ngIf="registerForm.controls.age.hasError('pattern') && registerForm.controls.age.touched">*Age wrong format!</span>
+            <span
+              *ngIf="registerForm.controls.age.hasError('min') && registerForm.controls.age.touched">*Age must > 18!</span>
+            <span
+              *ngIf="registerForm.controls.age.hasError('max') && registerForm.controls.age.touched">*Age must < 99!</span>
+          </tr>
+          <tr>
+            <div class="row">
+              <div class="col-2"><h5>Gender:</h5></div>
+              <div class="col-2"><input type="radio" formControlName="gender" value="male" class="form-check-inline">
+                Male
+              </div>
+              <div class="col-2"><input type="radio" formControlName="gender" value="female" class="form-check-inline">
+                Female
+              </div>
+              <span *ngIf="registerForm.controls.gender.hasError('required') && registerForm.controls.gender.touched">*Please chosen gender!</span>
+              <div class="col-2"></div>
+            </div>
+          </tr>
+          <tr>
+            <h5>Phone:</h5>
+            <input name="phone" type="text" formControlName="phone" class="form-control">
+            <span *ngIf="registerForm.controls.phone.hasError('required') && registerForm.controls.phone.touched">*Please input phone number!</span>
+            <span *ngIf="registerForm.controls.phone.hasError('pattern') && registerForm.controls.phone.touched">*Phone number must format: +84XXXXXXXXX or +84XXXXXXXXXX!</span>
+          </tr>
+          <tr>
+            <div class="mt-3" align="center">
+              <button [disabled]="registerForm.invalid" class="btn btn-outline-primary">Submit</button>
+            </div>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <div class="col-3">
+    </div>
+  </div>
+</div>

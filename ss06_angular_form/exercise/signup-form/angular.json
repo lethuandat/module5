@@ -1,9 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-show-pet-info": {
+    "signup-form": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-show-pet-info",
+            "outputPath": "dist/signup-form",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-show-pet-info:build"
+            "browserTarget": "signup-form:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-show-pet-info:build:production"
+              "browserTarget": "signup-form:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-show-pet-info:build"
+            "browserTarget": "signup-form:build"
           }
         },
         "test": {
@@ -110,15 +110,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-show-pet-info:serve"
+            "devServerTarget": "signup-form:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-show-pet-info:serve:production"
+              "devServerTarget": "signup-form:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "angular-show-pet-info"
+    }
+  },
+  "defaultProject": "signup-form",
+  "cli": {
+    "analytics": "ea304e21-0899-449b-abc0-9b30926b78ed"
+  }
 }
