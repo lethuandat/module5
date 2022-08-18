@@ -11,15 +11,18 @@
           <tr>
             <h5>Email:</h5>
             <input type="text" class="form-control" formControlName="email">
-            <span *ngIf="loginForm.controls.email.hasError('required') && loginForm.controls.email.touched">*Please input email!</span>
-            <span *ngIf="loginForm.controls.email.hasError('email') && loginForm.controls.email.touched">*Email wrong format!</span>
+            <p *ngIf="loginForm.controls.email.hasError('required') && loginForm.controls.email.touched">*Please input email!</p>
+            <p *ngIf="loginForm.controls.email.hasError('email') && loginForm.controls.email.touched">*Email wrong format!</p>
+            <p *ngIf="loginForm.controls.email.hasError('pattern') && loginForm.controls.email.touched">*Email is not correct!</p>
           </tr>
           <tr>
             <h5>Password:</h5>
             <input type="password" class="form-control" name="password" formControlName="password">
-            <span *ngIf="loginForm.controls.password.hasError('required') && loginForm.controls.password.touched">*Please input password!</span>
-            <span
-              *ngIf="loginForm.controls.password.hasError('minlength') && loginForm.controls.password.touched">*Password more than 6 characters!</span>
+            <p *ngIf="loginForm.controls.password.hasError('required') && loginForm.controls.password.touched">*Please input password!</p>
+            <p
+              *ngIf="loginForm.controls.password.hasError('minlength') && loginForm.controls.password.touched">*Password more than 6 characters!</p>
+            <p
+              *ngIf="loginForm.controls.password.hasError('pattern') && loginForm.controls.password.touched">*Password is not correct!</p>
           </tr>
 
           <tr>
