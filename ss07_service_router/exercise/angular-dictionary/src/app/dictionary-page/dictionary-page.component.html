@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <h2 align="center">SIMPLE DICTIONARY</h2>
+    <div class="col-4">
+      <input type="text" class="form-control" [(ngModel)]="keyword" name="keyword">
+    </div>
+    <div class="col-4">
+      <a [routerLink]="['detail', keyword]" class="btn btn-outline-primary">Search</a>
+    </div>
+    <div class="col-4">
+      <a routerLink="create" class="btn btn-outline-primary">Add new</a>
+    </div>
+
+  </div>
+  <div class="row">
+    <table class="table table-striped table-striped-columns">
+      <tr>
+        <th>STT</th>
+        <th>Word</th>
+        <th>Detail</th>
+      </tr>
+      <tr *ngFor="let item of dictionaryList; index as i">
+        <td>{{i + 1}}</td>
+        <td>{{item.word}}</td>
+        <td>
+          <a [routerLink]="['detail', item.word]" class="btn btn-outline-primary">Detail</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

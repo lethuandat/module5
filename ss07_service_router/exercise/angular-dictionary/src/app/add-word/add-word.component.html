@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <h2 align="center">ADD NEW WORD</h2>
+      <form [formGroup]="wordForm" (ngSubmit)="add()">
+        <div>
+          Word: <input type="text" formControlName="word" class="form-control">
+        </div>
+        <div>
+          Mean: <textarea type="text" formControlName="mean" class="form-control"></textarea>
+        </div>
+        <div class="mt-2">
+          <a routerLink="" class="btn btn-outline-secondary float-start">Back</a>
+          <button class="btn btn-outline-primary float-end" type="submit">Save</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-4"></div>
+  </div>
+</div>
