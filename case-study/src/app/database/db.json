@@ -1,0 +1,143 @@
+{
+  "customerTypes": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Platinum"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Silver"
+    },
+    {
+      "id": 5,
+      "name": "Member"
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "name": "Lê Văn Nam",
+      "birthDay": "12-20-1990",
+      "gender": "Nam",
+      "idCard": "982379821",
+      "phone": "0911111111",
+      "email": "nam@gmail.com",
+      "address": "Đà Nẵng",
+      "type": {
+        "name": "Diamond"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Lê Thị Linh",
+      "birthDay": "12-20-1990",
+      "gender": "Nữ",
+      "idCard": "982379821",
+      "phone": "0911111111",
+      "email": "nam@gmail.com",
+      "address": "Đà Nẵng",
+      "type": {
+        "name": "Diamond"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Lê Văn Bình",
+      "birthDay": "12-20-1990",
+      "gender": "Nam",
+      "idCard": "982379821",
+      "phone": "0911111111",
+      "email": "nam@gmail.com",
+      "address": "Quảng Nam",
+      "type": {
+        "name": "Platinum"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Lê Văn Long",
+      "birthDay": "12-20-1990",
+      "gender": "Nam",
+      "idCard": "982379821",
+      "phone": "0911111111",
+      "email": "nam@gmail.com",
+      "address": "Đà Nẵng",
+      "type": {
+        "name": "Gold"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Lê Văn Nam",
+      "birthDay": "12-20-1990",
+      "gender": "Nam",
+      "idCard": "982379821",
+      "phone": "0911111111",
+      "email": "nam@gmail.com",
+      "address": "Đà Nẵng",
+      "type": {
+        "name": "Silver"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Lê Thị Linh",
+      "birthDay": "12-20-1990",
+      "gender": "Nữ",
+      "idCard": "982379821",
+      "phone": "0911111111",
+      "email": "nam@gmail.com",
+      "address": "Đà Nẵng",
+      "type": {
+        "name": "Member"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Lê Văn Bình",
+      "birthDay": "12-20-1990",
+      "gender": "Nam",
+      "idCard": "982379821",
+      "phone": "0911111111",
+      "email": "nam@gmail.com",
+      "address": "Quảng Nam",
+      "type": {
+        "name": "Diamond"
+      }
+    },
+    {
+      "name": "Nam",
+      "birthDay": "2022-08-10",
+      "gender": "Nam",
+      "idCard": "123353423",
+      "phone": "0923232323",
+      "email": "nam@gmail.com",
+      "address": "Đà Nẵng",
+      "type": {
+        "name": "Silver"
+      },
+      "id": 8
+    },
+    {
+      "id": 9,
+      "name": "Quý",
+      "birthDay": "2022-08-02",
+      "gender": "Nam",
+      "idCard": "343431434",
+      "phone": "0922335341",
+      "email": "quy11@gmail.com",
+      "address": "Quảng Nam",
+      "type": {
+        "name": "Member"
+      }
+    }
+  ]
+}

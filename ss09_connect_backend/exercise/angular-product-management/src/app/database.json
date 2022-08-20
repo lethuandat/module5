@@ -1,0 +1,76 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Apple"
+    },
+    {
+      "id": 2,
+      "name": "Samsung"
+    },
+    {
+      "id": 3,
+      "name": "Oppo"
+    },
+    {
+      "name": "China",
+      "id": 4
+    }
+  ],
+  "products": [
+    {
+      "name": "Iphone 12",
+      "price": 500,
+      "description": "New 100%",
+      "category": {
+        "id": "4"
+      },
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "Iphone 13",
+      "price": 500,
+      "description": "New 100%",
+      "category": {
+        "id": 1
+      }
+    },
+    {
+      "name": "Samsung S20",
+      "price": 499,
+      "description": "New 100%",
+      "category": {
+        "id": 2
+      },
+      "id": 3
+    },
+    {
+      "name": "Mi7",
+      "price": 399,
+      "description": "New 99%",
+      "category": {
+        "id": "4"
+      },
+      "id": 4
+    },
+    {
+      "name": "S22",
+      "price": 600,
+      "description": "New 100%",
+      "category": {
+        "id": "2"
+      },
+      "id": 5
+    },
+    {
+      "name": "Mi8",
+      "price": 400,
+      "description": "New 99%",
+      "category": {
+        "id": 4
+      },
+      "id": 6
+    }
+  ]
+}
