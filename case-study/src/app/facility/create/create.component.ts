@@ -2,6 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {FacilityService} from "../facility.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {StandardRoom} from "../../model/standard-room";
+import {FacilityType} from "../../model/facility-type";
+import {RentType} from "../../model/rent-type";
+import {RentTypeService} from "../rent-type.service";
+import {FacilityTypeService} from "../facility-type.service";
+import {StandardRoomService} from "../standard-room.service";
 
 @Component({
   selector: 'app-create',
@@ -11,7 +17,6 @@ import {Router} from "@angular/router";
 export class CreateComponent implements OnInit {
 
   facilityForm: FormGroup = new FormGroup({
-    id: new FormControl(Math.floor(Math.random() * 1000)),
     name: new FormControl('', [Validators.required, Validators.pattern("^([A-Z\\p{L}]{1}[a-z\\p{L}]*)+(\\s([A-Z\\p{L}]{1}[a-z\\p{L}]*))*$")]),
     area: new FormControl('', [Validators.required, Validators.pattern("^[1-9]+\\d*")]),
     cost: new FormControl('', [Validators.required, Validators.pattern("^[1-9]+\\d*")]),
@@ -26,19 +31,61 @@ export class CreateComponent implements OnInit {
     image: new FormControl('../../../../assets/images/')
   });
 
+  rentTypes: RentType[] = [];
+  facilityTypes: FacilityType[] = [];
+  standardRooms: StandardRoom[] = [];
+
   constructor(private facilityService: FacilityService,
+              private facilityTypeService: FacilityTypeService,
+              private rentTypeService: RentTypeService,
+              private standardRoomService: StandardRoomService,
               private router: Router) {
   }
 
   ngOnInit(): void {
+    this.getRentType();
+    this.getFacilityType();
+    this.getStandardRoom();
+  }
+
+  getRentType() {
+    this.rentTypeService.getAll().subscribe(rentTypes => {
+      this.rentTypes = rentTypes;
+    });
+  }
+
+  getFacilityType() {
+    this.facilityTypeService.getAll().subscribe(facilityTypes => {
+      this.facilityTypes = facilityTypes;
+    });
+  }
+
+  getStandardRoom() {
+    this.standardRoomService.getAll().subscribe(standardRooms => {
+      this.standardRooms = standardRooms;
+    });
   }
 
   submit() {
     const facility = this.facilityForm.value;
-    this.facilityService.save(facility);
-    this.facilityForm.reset();
-    alert('Tạo mới thành công');
-    this.router.navigate(['/facility/list']);
+
+    facility.rentType = {
+      name: facility.rentType
+    };
+
+    facility.facilityType = {
+      name: facility.facilityType
+    };
+
+    facility.standardRoom = {
+      name: facility.standardRoom
+    };
+
+    this.facilityService.save(facility).subscribe(() => {
+      alert('Tạo mới thành công');
+      this.facilityForm.reset();
+      this.router.navigate(['/facility/list']);
+    }, e => console.log(e));
   }
 
   type = "";

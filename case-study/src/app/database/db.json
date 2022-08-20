@@ -139,5 +139,444 @@
         "name": "Member"
       }
     }
+  ],
+  "rentTypes": [
+    {
+      "id": 1,
+      "name": "Giờ"
+    },
+    {
+      "id": 2,
+      "name": "Ngày"
+    },
+    {
+      "id": 3,
+      "name": "Tháng"
+    },
+    {
+      "id": 4,
+      "name": "Năm"
+    }
+  ],
+  "facilityTypes": [
+    {
+      "id": 1,
+      "name": "Villa"
+    },
+    {
+      "id": 2,
+      "name": "House"
+    },
+    {
+      "id": 3,
+      "name": "Room"
+    }
+  ],
+  "standardRooms": [
+    {
+      "id": 1,
+      "name": "VIP"
+    },
+    {
+      "id": 2,
+      "name": "Thương gia"
+    },
+    {
+      "id": 3,
+      "name": "Tiêu chuẩn"
+    },
+    {
+      "id": 4,
+      "name": "Thường"
+    }
+  ],
+  "facilities": [
+    {
+      "id": 1,
+      "name": "Phòng suite hướng biển",
+      "area": "250",
+      "cost": "499",
+      "maxPeople": 4,
+      "rentType": {
+        "name": "Giờ"
+      },
+      "facilityType": {
+        "name": "Villa"
+      },
+      "standardRoom": {
+        "name": {
+          "name": "VIP"
+        }
+      },
+      "otherDescription": "Có hồ bơi",
+      "poolArea": 60,
+      "numberFloor": 4,
+      "facilityFree": "N/A",
+      "image": "../../../../assets/images/r1.PNG"
+    },
+    {
+      "id": 2,
+      "name": "Phòng deluxe hướng biển",
+      "area": 300,
+      "cost": 500,
+      "maxPeople": 4,
+      "rentType": {
+        "name": "Ngày"
+      },
+      "facilityType": {
+        "name": "Villa"
+      },
+      "standardRoom": {
+        "name": "VIP"
+      },
+      "otherDescription": "Có hồ bơi",
+      "poolArea": 60,
+      "numberFloor": 4,
+      "facilityFree": "N/A",
+      "image": "../../../../assets/images/r2.PNG"
+    },
+    {
+      "id": 3,
+      "name": "Phòng suite hướng vườn",
+      "area": "136",
+      "cost": "699",
+      "maxPeople": 4,
+      "rentType": {
+        "name": "Tháng"
+      },
+      "facilityType": {
+        "name": "Villa"
+      },
+      "standardRoom": {
+        "name": {
+          "name": "VIP"
+        }
+      },
+      "otherDescription": "Có hồ bơi",
+      "poolArea": 60,
+      "numberFloor": 4,
+      "facilityFree": "N/A",
+      "image": "../../../../assets/images/r3.PNG"
+    },
+    {
+      "id": 4,
+      "name": "Phòng suite hướng biển",
+      "area": 300,
+      "cost": 500,
+      "maxPeople": 4,
+      "rentType": {
+        "name": "Ngày"
+      },
+      "facilityType": {
+        "name": "Villa"
+      },
+      "standardRoom": {
+        "name": "VIP"
+      },
+      "otherDescription": "Có hồ bơi",
+      "poolArea": 60,
+      "numberFloor": 4,
+      "facilityFree": "N/A",
+      "image": "../../../../assets/images/r4.PNG"
+    },
+    {
+      "id": 5,
+      "name": "Phòng suite hướng biển",
+      "area": 300,
+      "cost": 500,
+      "maxPeople": 4,
+      "rentType": {
+        "name": "Ngày"
+      },
+      "facilityType": {
+        "name": "Villa"
+      },
+      "standardRoom": {
+        "name": "VIP"
+      },
+      "otherDescription": "Có hồ bơi",
+      "poolArea": 60,
+      "numberFloor": 4,
+      "facilityFree": "N/A",
+      "image": "../../../../assets/images/r5.PNG"
+    },
+    {
+      "id": 6,
+      "name": "Phòng suite hướng biển",
+      "area": 300,
+      "cost": 500,
+      "maxPeople": 4,
+      "rentType": {
+        "name": "Ngày"
+      },
+      "facilityType": {
+        "name": "Villa"
+      },
+      "standardRoom": {
+        "name": "VIP"
+      },
+      "otherDescription": "Có hồ bơi",
+      "poolArea": 60,
+      "numberFloor": 4,
+      "facilityFree": "wifi",
+      "image": "../../../../assets/images/r6.PNG"
+    },
+    {
+      "id": 7,
+      "name": "Phòng suite hướng biển",
+      "area": 300,
+      "cost": 500,
+      "maxPeople": 4,
+      "rentType": {
+        "name": "Ngày"
+      },
+      "facilityType": {
+        "name": "Villa"
+      },
+      "standardRoom": {
+        "name": "VIP"
+      },
+      "otherDescription": "Có hồ bơi",
+      "poolArea": 60,
+      "numberFloor": 4,
+      "facilityFree": "N/A",
+      "image": "../../../../assets/images/r1.PNG"
+    },
+    {
+      "id": 8,
+      "name": "Phòng deluxe hướng biển",
+      "area": 300,
+      "cost": 500,
+      "maxPeople": 4,
+      "rentType": {
+        "name": "Ngày"
+      },
+      "facilityType": {
+        "name": "Villa"
+      },
+      "standardRoom": {
+        "name": "VIP"
+      },
+      "otherDescription": "Có hồ bơi",
+      "poolArea": 60,
+      "numberFloor": 4,
+      "facilityFree": "N/A",
+      "image": "../../../../assets/images/r2.PNG"
+    },
+    {
+      "id": 9,
+      "name": "Phòng suite hướng vườn",
+      "area": 300,
+      "cost": 500,
+      "maxPeople": 4,
+      "rentType": {
+        "name": "Ngày"
+      },
+      "facilityType": {
+        "name": "Villa"
+      },
+      "standardRoom": {
+        "name": "VIP"
+      },
+      "otherDescription": "Có hồ bơi",
+      "poolArea": 60,
+      "numberFloor": 4,
+      "facilityFree": "N/A",
+      "image": "../../../../assets/images/r3.PNG"
+    },
+    {
+      "id": 10,
+      "name": "Phòng suite hướng biển",
+      "area": 300,
+      "cost": 500,
+      "maxPeople": 4,
+      "rentType": {
+        "name": "Ngày"
+      },
+      "facilityType": {
+        "name": "Villa"
+      },
+      "standardRoom": {
+        "name": "VIP"
+      },
+      "otherDescription": "Có hồ bơi",
+      "poolArea": 60,
+      "numberFloor": 4,
+      "facilityFree": "N/A",
+      "image": "../../../../assets/images/r4.PNG"
+    },
+    {
+      "id": 11,
+      "name": "Phòng suite hướng biển",
+      "area": 70,
+      "cost": 500,
+      "maxPeople": 4,
+      "rentType": {
+        "name": "Ngày"
+      },
+      "facilityType": {
+        "name": "Villa"
+      },
+      "standardRoom": {
+        "name": "VIP"
+      },
+      "otherDescription": "Có hồ bơi",
+      "poolArea": 60,
+      "numberFloor": 4,
+      "facilityFree": "N/A",
+      "image": "../../../../assets/images/r5.PNG"
+    },
+    {
+      "id": 12,
+      "name": "Phòng suite hướng vườn",
+      "area": 150,
+      "cost": 600,
+      "maxPeople": 4,
+      "rentType": {
+        "name": "Ngày"
+      },
+      "facilityType": {
+        "name": "Villa"
+      },
+      "standardRoom": {
+        "name": "VIP"
+      },
+      "otherDescription": "Có hồ bơi",
+      "poolArea": 60,
+      "numberFloor": 4,
+      "facilityFree": "wifi",
+      "image": "../../../../assets/images/r6.PNG"
+    },
+    {
+      "name": "Room View City",
+      "area": "65",
+      "cost": "499",
+      "maxPeople": "4",
+      "rentType": {
+        "name": "Ngày"
+      },
+      "facilityType": {
+        "name": "Room"
+      },
+      "standardRoom": {
+        "name": null
+      },
+      "otherDescription": null,
+      "poolArea": "",
+      "numberFloor": "",
+      "facilityFree": null,
+      "image": "../../../../assets/images/r5.PNG",
+      "id": 13
+    }
+  ],
+  "contracts": [
+    {
+      "id": 1,
+      "customer": {
+        "name": "Lê Văn Nam"
+      },
+      "facility": {
+        "name": "Phòng suite hướng biển"
+      },
+      "startDate": "08/12/2022",
+      "endDate": "08/16/2022",
+      "deposit": 600
+    },
+    {
+      "id": 2,
+      "customer": {
+        "name": "Lê Văn Nam"
+      },
+      "facility": {
+        "name": "Phòng suite hướng biển"
+      },
+      "startDate": "08/12/2022",
+      "endDate": "08/16/2022",
+      "deposit": 600
+    },
+    {
+      "id": 3,
+      "customer": {
+        "name": "Lê Văn Nam"
+      },
+      "facility": {
+        "name": "Phòng suite hướng biển"
+      },
+      "startDate": "08/12/2022",
+      "endDate": "08/16/2022",
+      "deposit": 600
+    },
+    {
+      "id": 4,
+      "customer": {
+        "name": "Lê Văn Nam"
+      },
+      "facility": {
+        "name": "Phòng suite hướng biển"
+      },
+      "startDate": "08/12/2022",
+      "endDate": "08/16/2022",
+      "deposit": 600
+    },
+    {
+      "id": 5,
+      "customer": {
+        "name": "Lê Văn Nam"
+      },
+      "facility": {
+        "name": "Phòng suite hướng biển"
+      },
+      "startDate": "08/12/2022",
+      "endDate": "08/16/2022",
+      "deposit": 600
+    },
+    {
+      "id": 6,
+      "customer": {
+        "name": "Lê Văn Nam"
+      },
+      "facility": {
+        "name": "Phòng suite hướng biển"
+      },
+      "startDate": "08/12/2022",
+      "endDate": "08/16/2022",
+      "deposit": 600
+    },
+    {
+      "id": 7,
+      "customer": {
+        "name": "Lê Văn Nam"
+      },
+      "facility": {
+        "name": "Phòng suite hướng biển"
+      },
+      "startDate": "08/12/2022",
+      "endDate": "08/16/2022",
+      "deposit": 600
+    },
+    {
+      "customer": {
+        "name": "Lê Thị Linh"
+      },
+      "facility": {
+        "name": "Phòng suite hướng biển"
+      },
+      "startDate": "2022-08-04",
+      "endDate": "2022-08-17",
+      "deposit": 350,
+      "id": 8
+    },
+    {
+      "customer": {
+        "name": "Lê Thị Linh"
+      },
+      "facility": {
+        "name": "Phòng suite hướng biển"
+      },
+      "startDate": "2022-08-11",
+      "endDate": "2022-08-19",
+      "deposit": 599,
+      "id": 9
+    }
   ]
 }

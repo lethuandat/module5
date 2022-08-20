@@ -64,7 +64,6 @@ export class EditComponent implements OnInit {
       alert('Cập nhật thành công');
       this.router.navigate(['/customer/list']);
     });
-
   }
 
   validationMessage = {

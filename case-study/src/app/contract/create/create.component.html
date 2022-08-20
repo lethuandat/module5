@@ -55,8 +55,8 @@
                   <th>Dịch vụ:</th>
                   <td>
                     <select class="form-select" formControlName="facility">
-                      <option [defaultSelected]="contractForm" value="">--Chọn dịch vụ--</option>
-                      <option *ngFor="let facility of facilities" [ngValue]="facility">{{facility.name}}</option>
+                      <option [defaultSelected]="contractForm" value="" disabled>--Chọn dịch vụ--</option>
+                      <option *ngFor="let facility of facilities" [ngValue]="facility.name">{{facility.name}}</option>
                     </select>
                     <div class="text-danger" *ngFor="let validation of validationMessage.facility">
                       <span *ngIf="contractForm.get('facility').hasError(validation.type) && contractForm.get('facility').touched">{{validation.message}}</span>
@@ -68,7 +68,7 @@
                   <td>
                     <select class="form-select" formControlName="customer">
                       <option [defaultSelected]="contractForm" value="">--Chọn khách hàng--</option>
-                      <option *ngFor="let customer of customers" [ngValue]="customer">{{customer.name}}</option>
+                      <option *ngFor="let customer of customers" [ngValue]="customer.name">{{customer.name}}</option>
                     </select>
                     <div class="text-danger" *ngFor="let validation of validationMessage.customer">
                       <span *ngIf="contractForm.get('customer').hasError(validation.type) && contractForm.get('customer').touched">{{validation.message}}</span>

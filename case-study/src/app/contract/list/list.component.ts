@@ -12,7 +12,7 @@ export class ListComponent implements OnInit {
   contracts: Contract[] = [];
 
   page = 1;
-  pageSize = 10;
+  pageSize = 5;
 
   constructor(private contractService: ContractService) {
   }
@@ -22,6 +22,8 @@ export class ListComponent implements OnInit {
   }
 
   getAll() {
-    this.contracts = this.contractService.getAll();
+    this.contractService.getAll().subscribe(contracts => {
+      this.contracts = contracts;
+    });
   }
 }

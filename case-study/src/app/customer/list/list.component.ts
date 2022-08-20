@@ -3,7 +3,6 @@ import {Customer} from "../../model/customer";
 import {CustomerService} from "../customer.service";
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
-
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',

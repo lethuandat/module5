@@ -15,7 +15,6 @@ import {FacilityService} from "../../facility/facility.service";
 export class CreateComponent implements OnInit {
 
   contractForm: FormGroup = new FormGroup({
-    id: new FormControl(Math.floor(Math.random() * 1000)),
     customer: new FormControl('', [Validators.required]),
     facility: new FormControl('', [Validators.required]),
     startDate: new FormControl('', [Validators.required]),
@@ -25,7 +24,7 @@ export class CreateComponent implements OnInit {
 
   customers: Customer[] = [];
 
-  facilities: Facility[] = this.facilityService.getAll();
+  facilities: Facility[] = [];
 
   constructor(private facilityService: FacilityService,
               private customerService: CustomerService,
@@ -35,6 +34,7 @@ export class CreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCustomer();
+    this.getFacility();
   }
 
   getCustomer() {
@@ -43,12 +43,28 @@ export class CreateComponent implements OnInit {
     });
   }
 
+  getFacility() {
+    this.facilityService.getAll().subscribe(facilities => {
+      this.facilities = facilities;
+    });
+  }
+
   submit() {
     const contract = this.contractForm.value;
-    this.contractService.save(contract);
-    this.contractForm.reset();
-    alert('Tạo mới thành công');
-    this.router.navigate(['/contract/list']);
+
+    contract.customer = {
+      name: contract.customer
+    };
+
+    contract.facility = {
+      name: contract.facility
+    };
+
+    this.contractService.save(contract).subscribe(() => {
+      alert('Tạo mới thành công');
+      this.contractForm.reset();
+      this.router.navigate(['/contract/list']);
+    }, e => console.log(e));
   }
 
   validationMessage = {

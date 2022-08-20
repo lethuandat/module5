@@ -55,13 +55,12 @@
                   <th>Loại dịch vụ:</th>
                   <td>
                     <select class="form-select" formControlName="facilityType" (change)="getType($event.target.value)">
-                      <option value="" [defaultSelected]="facilityForm">--Chọn loại dịch vụ--</option>
-                      <option value="Villa">Villa</option>
-                      <option value="House">House</option>
-                      <option value="Room">Room</option>
+                      <option [defaultSelected]="facilityForm" value="" disabled>--Chọn loại dịch vụ--</option>
+                      <option *ngFor="let item of facilityTypes" [ngValue]="item.name">{{item.name}}</option>
                     </select>
                     <div class="text-danger" *ngFor="let validation of validationMessage.facilityType">
-                      <span *ngIf="facilityForm.get('facilityType').hasError(validation.type) && facilityForm.get('facilityType').touched">{{validation.message}}</span>
+                      <span
+                        *ngIf="facilityForm.get('facilityType').hasError(validation.type) && facilityForm.get('facilityType').touched">{{validation.message}}</span>
                     </div>
                   </td>
                 </tr>
@@ -70,7 +69,8 @@
                   <td>
                     <input type="text" formControlName="name" class="form-control">
                     <div class="text-danger" *ngFor="let validation of validationMessage.name">
-                      <span *ngIf="facilityForm.get('name').hasError(validation.type) && facilityForm.get('name').touched">{{validation.message}}</span>
+                      <span
+                        *ngIf="facilityForm.get('name').hasError(validation.type) && facilityForm.get('name').touched">{{validation.message}}</span>
                     </div>
                   </td>
 
@@ -80,7 +80,8 @@
                   <td>
                     <input type="text" formControlName="area" class="form-control">
                     <div class="text-danger" *ngFor="let validation of validationMessage.area">
-                      <span *ngIf="facilityForm.get('area').hasError(validation.type) && facilityForm.get('area').touched">{{validation.message}}</span>
+                      <span
+                        *ngIf="facilityForm.get('area').hasError(validation.type) && facilityForm.get('area').touched">{{validation.message}}</span>
                     </div>
                   </td>
 
@@ -90,7 +91,8 @@
                   <td>
                     <input type="text" formControlName="cost" class="form-control">
                     <div class="text-danger" *ngFor="let validation of validationMessage.cost">
-                      <span *ngIf="facilityForm.get('cost').hasError(validation.type) && facilityForm.get('cost').touched">{{validation.message}}</span>
+                      <span
+                        *ngIf="facilityForm.get('cost').hasError(validation.type) && facilityForm.get('cost').touched">{{validation.message}}</span>
                     </div>
                   </td>
 
@@ -100,7 +102,8 @@
                   <td>
                     <input type="text" formControlName="maxPeople" class="form-control">
                     <div class="text-danger" *ngFor="let validation of validationMessage.maxPeople">
-                      <span *ngIf="facilityForm.get('maxPeople').hasError(validation.type) && facilityForm.get('maxPeople').touched">{{validation.message}}</span>
+                      <span
+                        *ngIf="facilityForm.get('maxPeople').hasError(validation.type) && facilityForm.get('maxPeople').touched">{{validation.message}}</span>
                     </div>
                   </td>
 
@@ -109,14 +112,12 @@
                   <th>Kiểu thuê:</th>
                   <td>
                     <select class="form-select" formControlName="rentType">
-                      <option value="" [defaultSelected]="facilityForm">--Chọn kiểu thuê--</option>
-                      <option value="Giờ">Giờ</option>
-                      <option value="Ngày">Ngày</option>
-                      <option value="Tháng">Tháng</option>
-                      <option value="Năm">Năm</option>
+                      <option [defaultSelected]="facilityForm" value="" disabled>--Chọn kiểu thuê--</option>
+                      <option *ngFor="let item of rentTypes" [ngValue]="item.name">{{item.name}}</option>
                     </select>
                     <div class="text-danger" *ngFor="let validation of validationMessage.rentType">
-                      <span *ngIf="facilityForm.get('rentType').hasError(validation.type) && facilityForm.get('rentType').touched">{{validation.message}}</span>
+                      <span
+                        *ngIf="facilityForm.get('rentType').hasError(validation.type) && facilityForm.get('rentType').touched">{{validation.message}}</span>
                     </div>
                   </td>
                 </tr>
@@ -129,12 +130,10 @@
                 <tr id="standardRoom" *ngIf="type === 'Villa' || type === 'House'" type="hidden">
                   <th>Loại phòng:</th>
                   <td>
-                    <input class="form-check-input" type="radio" value="VIP" formControlName="standardRoom"> VIP
-                    <input class="form-check-input" type="radio" value="Professional" formControlName="standardRoom">
-                    Professional
-                    <input class="form-check-input" type="radio" value="Standard" formControlName="standardRoom">
-                    Standard
-                    <input class="form-check-input" type="radio" value="Normal" formControlName="standardRoom"> Normal
+                    <select class="form-select" formControlName="standardRoom">
+                      <option [defaultSelected]="facilityForm" value="" disabled>--Chọn loại phòng--</option>
+                      <option *ngFor="let item of standardRooms" [ngValue]="item.name">{{item.name}}</option>
+                    </select>
                   </td>
                 </tr>
                 <tr id="otherDescription" *ngIf="type === 'Villa' || type === 'House'" type="hidden">
@@ -148,7 +147,8 @@
                   <td>
                     <input class="form-control" formControlName="poolArea" type="text"/>
                     <div class="text-danger" *ngFor="let validation of validationMessage.poolArea">
-                      <span *ngIf="facilityForm.get('poolArea').hasError(validation.type) && facilityForm.get('poolArea').touched">{{validation.message}}</span>
+                      <span
+                        *ngIf="facilityForm.get('poolArea').hasError(validation.type) && facilityForm.get('poolArea').touched">{{validation.message}}</span>
                     </div>
                   </td>
                 </tr>
@@ -157,7 +157,8 @@
                   <td>
                     <input class="form-control" formControlName="numberFloor" type="text"/>
                     <div class="text-danger" *ngFor="let validation of validationMessage.numberFloor">
-                      <span *ngIf="facilityForm.get('numberFloor').hasError(validation.type) && facilityForm.get('numberFloor').touched">{{validation.message}}</span>
+                      <span
+                        *ngIf="facilityForm.get('numberFloor').hasError(validation.type) && facilityForm.get('numberFloor').touched">{{validation.message}}</span>
                     </div>
                   </td>
                 </tr>
@@ -183,7 +184,7 @@
                     </a>
                   </td>
                   <td align="left">
-                    <button [disabled]="facilityForm.invalid"  class="btn btn-outline-primary">
+                    <button [disabled]="facilityForm.invalid" class="btn btn-outline-primary">
                       Thêm mới
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                            fill="currentColor" class="bi bi-save" viewBox="0 0 16 16">

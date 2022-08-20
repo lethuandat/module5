@@ -2,6 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {FacilityService} from "../facility.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {RentType} from "../../model/rent-type";
+import {FacilityType} from "../../model/facility-type";
+import {StandardRoom} from "../../model/standard-room";
+import {FacilityTypeService} from "../facility-type.service";
+import {RentTypeService} from "../rent-type.service";
+import {StandardRoomService} from "../standard-room.service";
 
 @Component({
   selector: 'app-edit',
@@ -10,14 +16,52 @@ import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 })
 export class EditComponent implements OnInit {
 
+  rentTypes: RentType[] = [];
+  facilityTypes: FacilityType[] = [];
+  standardRooms: StandardRoom[] = [];
+  facilityForm: FormGroup;
+  id: number;
+
   constructor(
     private facilityService: FacilityService,
+    private facilityTypeService: FacilityTypeService,
+    private rentTypeService: RentTypeService,
+    private standardRoomService: StandardRoomService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
-      const facility = this.findById(this.id);
+      this.findById(this.id);
+    });
+  }
+
+  ngOnInit(): void {
+    this.getRentType();
+    this.getFacilityType();
+    this.getStandardRoom();
+  }
+
+  getRentType() {
+    this.rentTypeService.getAll().subscribe(rentTypes => {
+      this.rentTypes = rentTypes;
+    });
+  }
+
+  getFacilityType() {
+    this.facilityTypeService.getAll().subscribe(facilityTypes => {
+      this.facilityTypes = facilityTypes;
+    });
+  }
+
+  getStandardRoom() {
+    this.standardRoomService.getAll().subscribe(standardRooms => {
+      this.standardRooms = standardRooms;
+    });
+  }
+
+  findById(id: number) {
+    return this.facilityService.findById(id).subscribe(facility => {
       this.facilityForm = new FormGroup({
         id: new FormControl(facility.id),
         name: new FormControl(facility.name, [Validators.required, Validators.pattern("^([A-Z\\p{L}]{1}[a-z\\p{L}]*)+(\\s([A-Z\\p{L}]{1}[a-z\\p{L}]*))*$")]),
@@ -36,21 +80,25 @@ export class EditComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
-
-  facilityForm: FormGroup;
-  id: number;
-
-  findById(id: number) {
-    return this.facilityService.findById(id);
-  }
-
   update(id: number) {
     const facility = this.facilityForm.value;
-    this.facilityService.update(id, facility);
-    alert('Cập nhật thành công');
-    this.router.navigate(['/facility/list']);
+
+    facility.rentType = {
+      name: facility.rentType
+    };
+
+    facility.facilityType = {
+      name: facility.facilityType
+    };
+
+    facility.standardRoom = {
+      name: facility.standardRoom
+    };
+
+    this.facilityService.update(id, facility).subscribe(() => {
+      alert('Cập nhật thành công');
+      this.router.navigate(['/facility/list']);
+    });
   }
 
   type = "";

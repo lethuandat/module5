@@ -17,8 +17,4 @@ export class CustomerTypeService {
   getAll(): Observable<CustomerType[]> {
     return this.http.get<CustomerType[]>(API_URL + '/customerTypes');
   }
-
-  findById(id: number): Observable<CustomerType> {
-    return this.http.get<CustomerType>(`${API_URL}/customerTypes/${id}`);
-  }
 }

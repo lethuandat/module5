@@ -4,6 +4,7 @@ import {CustomerService} from "../customer.service";
 import {Router} from "@angular/router";
 import {CustomerTypeService} from "../customer-type.service";
 import {CustomerType} from "../../model/customer-type";
+import {checkBirthDay} from "../../validate/check-birth-day";
 
 
 @Component({
@@ -15,7 +16,7 @@ export class CreateComponent implements OnInit {
 
   customerForm: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-Zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+(\\s[a-zA-Zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+)*$")]),
-    birthDay: new FormControl('', [Validators.required]),
+    birthDay: new FormControl('', [Validators.required, checkBirthDay]),
     gender: new FormControl('', [Validators.required]),
     idCard: new FormControl('', [Validators.required, Validators.pattern("\\d{9}")]),
     phone: new FormControl('', [Validators.required, Validators.pattern("^(0|\\(\\+84\\))\\d{9}$")]),
@@ -37,9 +38,11 @@ export class CreateComponent implements OnInit {
 
   submit() {
     const customer = this.customerForm.value;
+
     customer.type = {
       name: customer.type
     };
+
     this.customerService.save(customer).subscribe(() => {
       alert('Tạo mới thành công');
       this.customerForm.reset();

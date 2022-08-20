@@ -6,15 +6,13 @@ import {FacilityRoutingModule} from "./facility-routing.module";
 import {ListComponent} from "./list/list.component";
 import {CreateComponent} from "./create/create.component";
 import {EditComponent} from "./edit/edit.component";
-import {DeleteComponent} from './delete/delete.component';
 import {NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
     ListComponent,
     CreateComponent,
-    EditComponent,
-    DeleteComponent
+    EditComponent
   ],
   imports: [
     CommonModule,

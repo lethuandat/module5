@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Facility} from "../../model/facility";
 import {FacilityService} from "../facility.service";
-import {Customer} from "../../model/customer";
-import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-list',
@@ -10,7 +9,6 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-
   facilities: Facility[] = [];
 
   page = 1;
@@ -28,12 +26,14 @@ export class ListComponent implements OnInit {
   }
 
   getAll() {
-    this.facilities = this.facilityService.getAll();
+    this.facilityService.getAll().subscribe(facilities => {
+      this.facilities = facilities;
+    });
   }
 
-  openDelete(targetModal, customer: Customer) {
-    this.deleteId = customer.id;
-    this.deleteName = customer.name;
+  openDelete(targetModal, facility: Facility) {
+    this.deleteId = facility.id;
+    this.deleteName = facility.name;
     this.modalService.open(targetModal, {
       backdrop: 'static',
       size: 'md'
@@ -41,8 +41,9 @@ export class ListComponent implements OnInit {
   }
 
   onDelete() {
-    this.facilityService.delete(this.deleteId);
-    this.ngOnInit();
-    this.modalService.dismissAll();
+    this.facilityService.delete(this.deleteId).subscribe(() => {
+      this.ngOnInit();
+      this.modalService.dismissAll();
+    }, e => console.log(e));
   }
 }
