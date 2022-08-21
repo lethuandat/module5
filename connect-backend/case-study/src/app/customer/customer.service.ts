@@ -20,18 +20,18 @@ export class CustomerService {
   }
 
   save(customer: Customer): Observable<Customer> {
-    return this.http.post<Customer>(API_URL + '/customers', customer);
+    return this.http.post<Customer>(API_URL + '/api/customers', customer);
   }
 
   findById(id: number): Observable<Customer> {
-    return this.http.get<Customer>(`${API_URL}/customers/${id}`);
+    return this.http.get<Customer>(`${API_URL}/api/customers/${id}`);
   }
 
   update(id: number, customer: Customer): Observable<Customer> {
-    return this.http.put<Customer>(`${API_URL}/customers/${id}`, customer);
+    return this.http.put<Customer>(`${API_URL}/api/customers/${id}`, customer);
   }
 
   delete(id: number): Observable<Customer> {
-    return this.http.delete<Customer>(`${API_URL}/customers/${id}`);
+    return this.http.delete<Customer>(`${API_URL}/api/customers/${id}`);
   }
 }

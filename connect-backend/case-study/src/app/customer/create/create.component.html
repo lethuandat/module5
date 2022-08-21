@@ -78,9 +78,9 @@
                 <tr>
                   <th>Giới tính:</th>
                   <td>
-                    <input type="radio" class="form-check-inline" value="Nam" formControlName="gender">Nam
-                    <input type="radio" class="form-check-inline" value="Nữ" formControlName="gender">Nữ
-                    <input type="radio" class="form-check-inline" value="Khác" formControlName="gender">Khác
+                    <input type="radio" class="form-check-inline" value="1" formControlName="gender">Nam
+                    <input type="radio" class="form-check-inline" value="0" formControlName="gender">Nữ
+                    <input type="radio" class="form-check-inline" value="2" formControlName="gender">Khác
                     <div class="text-danger" *ngFor="let validation of validationMessage.gender">
                       <span
                         *ngIf="customerForm.get('gender').hasError(validation.type) && customerForm.get('gender').touched">{{validation.message}}</span>
@@ -133,7 +133,7 @@
                   <td>
                     <select class="form-select" formControlName="type">
                       <option [defaultSelected]="customerForm" value="" disabled>--Chọn loại khách hàng--</option>
-                      <option *ngFor="let item of customerTypes" [ngValue]="item.name">{{item.name}}</option>
+                      <option *ngFor="let item of customerTypes" [ngValue]="item.customerTypeId">{{item.customerTypeName}}</option>
                     </select>
                     <div class="text-danger" *ngFor="let validation of validationMessage.type">
                       <span

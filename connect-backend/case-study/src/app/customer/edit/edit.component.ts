@@ -4,6 +4,7 @@ import {CustomerService} from "../customer.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {CustomerType} from "../../model/customer-type";
 import {CustomerTypeService} from "../customer-type.service";
+import {checkBirthDay} from "../../validate/check-birth-day";
 
 @Component({
   selector: 'app-edit',
@@ -44,7 +45,7 @@ export class EditComponent implements OnInit {
       this.customerForm = new FormGroup({
         id: new FormControl(customer.id),
         name: new FormControl(customer.name, [Validators.required, Validators.pattern("^[a-zA-Zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+(\\s[a-zA-Zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+)*$")]),
-        birthDay: new FormControl(customer.birthDay, [Validators.required]),
+        birthDay: new FormControl(customer.birthDay, [Validators.required, checkBirthDay]),
         gender: new FormControl(customer.gender, [Validators.required]),
         idCard: new FormControl(customer.idCard, [Validators.required, Validators.pattern("\\d{9}")]),
         phone: new FormControl(customer.phone, [Validators.required, Validators.pattern("^(0|\\(\\+84\\))\\d{9}$")]),
@@ -57,9 +58,7 @@ export class EditComponent implements OnInit {
 
   update(id: number) {
     const customer = this.customerForm.value;
-    customer.type = {
-      name: customer.type
-    };
+
     this.customerService.update(id, customer).subscribe(() => {
       alert('Cập nhật thành công');
       this.router.navigate(['/customer/list']);
