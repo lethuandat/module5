@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DictionaryService} from "../dictionary.service";
 import {ActivatedRoute, ParamMap} from "@angular/router";
+import {IWord} from "../i-word";
 
 @Component({
   selector: 'app-dictionary-detail',
@@ -25,7 +26,7 @@ export class DictionaryDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getOne(word: string) {
+  getOne(word: string): IWord {
     return this.dictionaryService.findByWord(word);
   }
 }
