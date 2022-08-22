@@ -21,11 +21,11 @@ export class ProductListComponent implements OnInit {
     this.getAll();
   }
 
-  getAll() {
+  getAll(): void {
     this.products = this.productService.getAll();
   }
 
-  openDelete(targetModal, product: Product) {
+  openDelete(targetModal, product: Product): void {
     this.deleteId = product.id;
     this.deleteName = product.name;
     this.modalService.open(targetModal, {
@@ -34,7 +34,7 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  onDelete() {
+  onDelete(): void {
     this.productService.deleteProduct(this.deleteId);
     this.ngOnInit();
     this.modalService.dismissAll();
