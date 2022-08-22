@@ -40,6 +40,10 @@ export class EditComponent implements OnInit {
     this.getCustomerType();
   }
 
+  compareWithId(item1, item2) {
+    return item1 && item2 && item1.id == item2.id;
+  };
+
   findById(id: number) {
     return this.customerService.findById(id).subscribe(customer => {
       this.customerForm = new FormGroup({

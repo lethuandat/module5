@@ -39,11 +39,6 @@ export class CreateComponent implements OnInit {
   submit() {
     const customer = this.customerForm.value;
 
-    // customer.customerType = {
-    //   customerTypeId:  customer.customerType.customerTypeId,
-    //   customerTypeName:  customer.customerType.customerTypeName
-    // };
-
     this.customerService.save(customer).subscribe(() => {
       alert('Tạo mới thành công');
       this.customerForm.reset();

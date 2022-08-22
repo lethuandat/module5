@@ -206,11 +206,11 @@ export class DictionaryService {
   constructor() {
   }
 
-  getAll() {
+  getAll(): IWord[] {
     return this.dictionaryList;
   }
 
-  findByWord(word: string) {
+  findByWord(word: string): IWord {
     for (let i = 0; i < this.dictionaryList.length; i++) {
       if (word === this.dictionaryList[i].word) {
         return this.dictionaryList[i];
