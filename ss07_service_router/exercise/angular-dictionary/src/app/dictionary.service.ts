@@ -221,7 +221,7 @@ export class DictionaryService {
     };
   }
 
-  save(newWord: IWord) {
+  save(newWord: IWord): void {
     this.dictionaryList.push(newWord);
   }
 }

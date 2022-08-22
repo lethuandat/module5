@@ -22,7 +22,7 @@ export class AddWordComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  add() {
+  add(): void {
     const newWord = this.wordForm.value;
     this.dictionaryService.save(newWord);
     this.wordForm.reset();
