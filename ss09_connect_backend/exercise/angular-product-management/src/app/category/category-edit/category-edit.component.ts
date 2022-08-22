@@ -31,7 +31,7 @@ export class CategoryEditComponent implements OnInit {
     });
   }
 
-  updateCategory(id: number) {
+  updateCategory(id: number): void {
     const category = this.categoryForm.value;
     this.categoryService.updateCategory(id, category).subscribe(() => {
       alert('Cập nhật thành công');

@@ -5,15 +5,15 @@
       "name": "Apple"
     },
     {
-      "id": 2,
-      "name": "Samsung"
+      "name": "Samsung",
+      "id": 2
     },
     {
       "id": 3,
       "name": "Oppo"
     },
     {
-      "name": "China",
+      "name": "Xiaomi",
       "id": 4
     }
   ],
@@ -65,7 +65,7 @@
     },
     {
       "name": "Mi8",
-      "price": 400,
+      "price": 399,
       "description": "New 99%",
       "category": {
         "id": 4

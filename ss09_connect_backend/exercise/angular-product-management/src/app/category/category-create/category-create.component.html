@@ -1,14 +1,14 @@
-<h1>Tạo danh mục mới</h1>
+<h1 align="center">Tạo danh mục mới</h1>
 <form [formGroup]="categoryForm" (ngSubmit)="submit()">
-  <table>
+  <table class="table table-hover">
     <tr>
       <td>Tên danh mục:</td>
-      <td><input type="text" formControlName="name"></td>
+      <td><input class="form-control" type="text" formControlName="name"></td>
     </tr>
     <tr>
       <td></td>
       <td>
-        <button>Tạo mới</button>
+        <button class="btn btn-outline-primary">Tạo mới</button>
       </td>
     </tr>
   </table>

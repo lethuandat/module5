@@ -4,6 +4,7 @@ import {ActivatedRoute, ParamMap} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Category} from '../../model/category';
 import {CategoryService} from '../../service/category.service';
+import {Product} from "../../model/product";
 
 @Component({
   selector: 'app-product-edit',
@@ -39,7 +40,7 @@ export class ProductEditComponent implements OnInit {
     });
   }
 
-  updateProduct(id: number) {
+  updateProduct(id: number): void {
     const product = this.productForm.value;
     product.category = {
       id: product.category
@@ -49,9 +50,9 @@ export class ProductEditComponent implements OnInit {
     });
   }
 
-  getAllCategory() {
-    this.categoryService.getAll().subscribe(categoires => {
-      this.categories = categoires;
+  getAllCategory(): void {
+    this.categoryService.getAll().subscribe(categories => {
+      this.categories = categories;
     });
   }
 }

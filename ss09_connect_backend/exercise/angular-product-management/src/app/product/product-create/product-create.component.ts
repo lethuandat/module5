@@ -27,7 +27,7 @@ export class ProductCreateComponent implements OnInit {
     this.getAllCategory();
   }
 
-  submit() {
+  submit(): void {
     const product = this.productForm.value;
     product.category = {
       id: parseInt(product.category)
@@ -38,7 +38,7 @@ export class ProductCreateComponent implements OnInit {
     }, e => console.log(e));
   }
 
-  getAllCategory() {
+  getAllCategory(): void {
     this.categoryService.getAll().subscribe(categoires => {
       this.categories = categoires;
     });

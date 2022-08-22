@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Category} from '../../model/category';
 import {CategoryService} from '../../service/category.service';
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-category-list',
@@ -9,18 +10,36 @@ import {CategoryService} from '../../service/category.service';
 })
 export class CategoryListComponent implements OnInit {
   categories: Category[] = [];
+  deleteId: number;
+  deleteName: string;
 
-  constructor(private categoryService: CategoryService) {
+  constructor(private categoryService: CategoryService,
+              private modalService: NgbModal) {
   }
 
   ngOnInit() {
     this.getAll();
   }
 
-  getAll() {
+  getAll(): void {
     this.categoryService.getAll().subscribe(categories => {
       this.categories = categories;
     });
   }
 
+  openDelete(targetModal, category: Category): void {
+    this.deleteId = category.id;
+    this.deleteName = category.name;
+    this.modalService.open(targetModal, {
+      backdrop: 'static',
+      size: 'md'
+    });
+  }
+
+  onDelete(): void {
+    this.categoryService.deleteCategory(this.deleteId).subscribe(() => {
+      this.ngOnInit();
+      this.modalService.dismissAll();
+    }, e => console.log(e));
+  }
 }

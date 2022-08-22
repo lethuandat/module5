@@ -1,6 +1,6 @@
-<h1>Danh sách danh mục sản phẩm</h1>
-<a routerLink="/category/create">Tạo mới danh mục</a>
-<table>
+<h1 align="center">Danh sách danh mục sản phẩm</h1>
+<a routerLink="/category/create" class="btn btn-outline-primary">Tạo mới danh mục</a>
+<table class="table table-hover mt-3">
   <tr>
     <td>STT</td>
     <td>Tên</td>
@@ -9,7 +9,23 @@
   <tr *ngFor="let category of categories; index as i">
     <td>{{i + 1}}</td>
     <td>{{category.name}}</td>
-    <td><a [routerLink]="['/category/edit',category.id]">Edit</a></td>
-    <td><a [routerLink]="['/category/delete',category.id]">Delete</a></td>
+    <td><a class="btn btn-outline-warning" [routerLink]="['/category/edit',category.id]">Edit</a></td>
+    <td><a class="btn btn-outline-danger" (click)="openDelete(contentDelete, category)">Delete</a></td>
   </tr>
 </table>
+
+<!--Delete Modal-->
+<ng-template #contentDelete let-modal>
+  <div class="modal-header bg-warning">
+    <h4 class="modal-title">Cảnh báo</h4>
+    <button type="button" class="btn btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    </button>
+  </div>
+  <div class="modal-body">
+    <span>Bạn có muốn xóa danh mục <span class="text-danger">{{deleteName}}</span> không?</span>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Hủy bỏ</button>
+    <button data-dismiss="modal" class="btn btn-outline-danger" (click)="onDelete()">Xóa</button>
+  </div>
+</ng-template>
