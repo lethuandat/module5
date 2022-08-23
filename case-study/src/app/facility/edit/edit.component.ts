@@ -8,6 +8,7 @@ import {StandardRoom} from "../../model/standard-room";
 import {FacilityTypeService} from "../facility-type.service";
 import {RentTypeService} from "../rent-type.service";
 import {StandardRoomService} from "../standard-room.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-edit',
@@ -28,7 +29,8 @@ export class EditComponent implements OnInit {
     private rentTypeService: RentTypeService,
     private standardRoomService: StandardRoomService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toast: ToastrService
   ) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
@@ -68,9 +70,9 @@ export class EditComponent implements OnInit {
         area: new FormControl(facility.area, [Validators.required, Validators.pattern("^[1-9]+\\d*")]),
         cost: new FormControl(facility.cost, [Validators.required, Validators.pattern("^[1-9]+\\d*")]),
         maxPeople: new FormControl(facility.maxPeople, [Validators.required, Validators.pattern("^[1-9]+\\d*")]),
-        rentType: new FormControl(facility.rentType, [Validators.required]),
-        facilityType: new FormControl(facility.facilityType, [Validators.required]),
-        standardRoom: new FormControl(facility.standardRoom),
+        rentType: new FormControl(facility.rentType.id, [Validators.required]),
+        facilityType: new FormControl(facility.facilityType.id, [Validators.required]),
+        standardRoom: new FormControl(facility.standardRoom.id),
         otherDescription: new FormControl(facility.otherDescription),
         poolArea: new FormControl(facility.poolArea, [Validators.required, Validators.pattern("^[1-9]+\\d*")]),
         numberFloor: new FormControl(facility.numberFloor, [Validators.required, Validators.pattern("^[1-9]+\\d*")]),
@@ -83,22 +85,35 @@ export class EditComponent implements OnInit {
   update(id: number) {
     const facility = this.facilityForm.value;
 
-    facility.rentType = {
-      name: facility.rentType
-    };
+    this.rentTypeService.findById(facility.rentType).subscribe(rentType => {
 
-    facility.facilityType = {
-      name: facility.facilityType
-    };
+      this.facilityTypeService.findById(facility.facilityType).subscribe(facilityType => {
 
-    facility.standardRoom = {
-      name: facility.standardRoom
-    };
+        this.standardRoomService.findById(facility.standardRoom).subscribe(standardRoom => {
 
-    this.facilityService.update(id, facility).subscribe(() => {
-      alert('Cập nhật thành công');
-      this.router.navigate(['/facility/list']);
-    });
+          facility.rentType = {
+            id: rentType.id,
+            name: rentType.name
+          };
+
+          facility.facilityType = {
+            id: facilityType.id,
+            name: facilityType.name
+          };
+
+          facility.standardRoom = {
+            id: standardRoom.id,
+            name: standardRoom.name
+          };
+
+          this.facilityService.update(id, facility).subscribe(() => {
+            this.toast.info('Cập nhật thành công!', "Thông báo");
+            this.router.navigate(['/facility/list']);
+          }, e => console.log(e));
+        })
+      })
+    })
+
   }
 
   type = "";

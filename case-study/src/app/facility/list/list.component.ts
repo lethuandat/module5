@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Facility} from "../../model/facility";
 import {FacilityService} from "../facility.service";
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-list',
@@ -16,9 +17,11 @@ export class ListComponent implements OnInit {
 
   deleteId: number;
   deleteName: string;
+  keyword: string;
 
   constructor(private facilityService: FacilityService,
-              private modalService: NgbModal) {
+              private modalService: NgbModal,
+              private toast: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -43,7 +46,15 @@ export class ListComponent implements OnInit {
   onDelete() {
     this.facilityService.delete(this.deleteId).subscribe(() => {
       this.ngOnInit();
+      this.toast.error('Xóa thành công!', "Thông báo");
       this.modalService.dismissAll();
     }, e => console.log(e));
+  }
+
+  search() {
+    this.facilityService.find(this.keyword).subscribe(facilities => {
+      this.facilities = facilities;
+      this.keyword = "";
+    })
   }
 }

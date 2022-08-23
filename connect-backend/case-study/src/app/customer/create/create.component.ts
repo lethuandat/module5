@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {CustomerTypeService} from "../customer-type.service";
 import {CustomerType} from "../../model/customer-type";
 import {checkBirthDay} from "../../validate/check-birth-day";
+import {ToastrService} from "ngx-toastr";
 
 
 @Component({
@@ -13,44 +14,41 @@ import {checkBirthDay} from "../../validate/check-birth-day";
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
-
-  customerForm: FormGroup = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-Zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+(\\s[a-zA-Zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+)*$")]),
-    birthDay: new FormControl('', [Validators.required, checkBirthDay]),
-    gender: new FormControl('', [Validators.required]),
-    idCard: new FormControl('', [Validators.required, Validators.pattern("\\d{9}")]),
-    phone: new FormControl('', [Validators.required, Validators.pattern("^(0|\\(\\+84\\))\\d{9}$")]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    address: new FormControl('', [Validators.required]),
-    type: new FormControl('', [Validators.required]),
-  });
-
+  customerForm: FormGroup;
   customerTypes: CustomerType[] = [];
+  customerTypeSelected: CustomerType;
 
   constructor(private customerService: CustomerService,
               private customerTypeService: CustomerTypeService,
-              private router: Router) {
+              private router: Router,
+              private toast: ToastrService) {
+    this.customerTypeService.getAll().subscribe(customerTypes => {
+      this.customerTypes = customerTypes;
+      this.customerTypeSelected = this.customerTypes[0];
+      this.customerForm = new FormGroup({
+        name: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-Zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+(\\s[a-zA-Zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+)*$")]),
+        birthDay: new FormControl('', [Validators.required, checkBirthDay]),
+        gender: new FormControl('', [Validators.required]),
+        idCard: new FormControl('', [Validators.required, Validators.pattern("\\d{9}")]),
+        phone: new FormControl('', [Validators.required, Validators.pattern("^(0|\\(\\+84\\))\\d{9}$")]),
+        email: new FormControl('', [Validators.required, Validators.email]),
+        address: new FormControl('', [Validators.required]),
+        type: new FormControl(this.customerTypeSelected, [Validators.required]),
+      });
+    });
   }
 
   ngOnInit(): void {
-    this.getCustomerType();
   }
 
   submit() {
     const customer = this.customerForm.value;
+    customer.customerType = this.customerTypeSelected;
 
     this.customerService.save(customer).subscribe(() => {
-      alert('Tạo mới thành công');
-      this.customerForm.reset();
+      this.toast.info("Thêm mới thành công", "Thông báo");
       this.router.navigate(['/customer/list']);
     }, e => console.log(e));
-  }
-
-
-  getCustomerType() {
-    this.customerTypeService.getAll().subscribe(customerTypes => {
-      this.customerTypes = customerTypes;
-    });
   }
 
   validationMessage = {

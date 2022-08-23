@@ -17,4 +17,8 @@ export class RentTypeService {
   getAll(): Observable<RentType[]> {
     return this.http.get<RentType[]>(API_URL + '/rentTypes');
   }
+
+  findById(id: number): Observable<RentType> {
+    return this.http.get<RentType>(`${API_URL}/rentTypes/${id}`);
+  }
 }

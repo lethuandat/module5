@@ -25,91 +25,98 @@
     {
       "id": 1,
       "name": "Lê Văn Nam",
-      "birthDay": "12-20-1990",
+      "birthDay": "1990-12-11",
       "gender": "Nam",
       "idCard": "982379821",
       "phone": "0911111111",
       "email": "nam@gmail.com",
       "address": "Đà Nẵng",
       "type": {
+        "id": 1,
         "name": "Diamond"
       }
     },
     {
       "id": 2,
       "name": "Lê Thị Linh",
-      "birthDay": "12-20-1990",
+      "birthDay": "1990-12-11",
       "gender": "Nữ",
       "idCard": "982379821",
       "phone": "0911111111",
       "email": "nam@gmail.com",
       "address": "Đà Nẵng",
       "type": {
+        "id": 1,
         "name": "Diamond"
       }
     },
     {
       "id": 3,
       "name": "Lê Văn Bình",
-      "birthDay": "12-20-1990",
+      "birthDay": "1990-12-11",
       "gender": "Nam",
       "idCard": "982379821",
       "phone": "0911111111",
       "email": "nam@gmail.com",
       "address": "Quảng Nam",
       "type": {
+        "id": 2,
         "name": "Platinum"
       }
     },
     {
       "id": 4,
       "name": "Lê Văn Long",
-      "birthDay": "12-20-1990",
+      "birthDay": "1990-12-11",
       "gender": "Nam",
       "idCard": "982379821",
       "phone": "0911111111",
       "email": "nam@gmail.com",
       "address": "Đà Nẵng",
       "type": {
+        "id": 3,
         "name": "Gold"
       }
     },
     {
       "id": 5,
       "name": "Lê Văn Nam",
-      "birthDay": "12-20-1990",
+      "birthDay": "1990-12-11",
       "gender": "Nam",
       "idCard": "982379821",
       "phone": "0911111111",
       "email": "nam@gmail.com",
       "address": "Đà Nẵng",
       "type": {
+        "id": 4,
         "name": "Silver"
       }
     },
     {
       "id": 6,
       "name": "Lê Thị Linh",
-      "birthDay": "12-20-1990",
+      "birthDay": "1990-12-11",
       "gender": "Nữ",
       "idCard": "982379821",
       "phone": "0911111111",
       "email": "nam@gmail.com",
       "address": "Đà Nẵng",
       "type": {
+        "id": 5,
         "name": "Member"
       }
     },
     {
       "id": 7,
       "name": "Lê Văn Bình",
-      "birthDay": "12-20-1990",
+      "birthDay": "1990-12-11",
       "gender": "Nam",
       "idCard": "982379821",
       "phone": "0911111111",
-      "email": "nam@gmail.com",
+      "email": "nam333@gmail.com",
       "address": "Quảng Nam",
       "type": {
+        "id": 1,
         "name": "Diamond"
       }
     },
@@ -122,6 +129,7 @@
       "email": "nam@gmail.com",
       "address": "Đà Nẵng",
       "type": {
+        "id": 4,
         "name": "Silver"
       },
       "id": 8
@@ -136,7 +144,78 @@
       "email": "quy11@gmail.com",
       "address": "Quảng Nam",
       "type": {
+        "id": 5,
         "name": "Member"
+      }
+    },
+    {
+      "name": "a",
+      "birthDay": "2012-08-03",
+      "gender": "Nam",
+      "idCard": "111111111",
+      "phone": "0923232323",
+      "email": "dadsa@gmail.com",
+      "address": "Da Nang",
+      "type": {
+        "id": 5,
+        "name": "Member"
+      },
+      "id": 10
+    },
+    {
+      "id": 11,
+      "name": "Hoàng",
+      "birthDay": "2012-08-17",
+      "gender": "Nam",
+      "idCard": "111111111",
+      "phone": "0934343434",
+      "email": "hoang222@gmail.com",
+      "address": "Đà Nẵng",
+      "type": {
+        "id": 5,
+        "name": "Member"
+      }
+    },
+    {
+      "id": 13,
+      "name": "Le Van Quan",
+      "birthDay": "2003-08-03",
+      "gender": "Nam",
+      "idCard": "432432432",
+      "phone": "0943243242",
+      "email": "oi.cuoc.doi@gmail.com",
+      "address": "Quang Nam",
+      "type": {
+        "id": 1,
+        "name": "Diamond"
+      }
+    },
+    {
+      "name": "Nam",
+      "birthDay": "2014-09-29",
+      "gender": "Nam",
+      "idCard": "545353454",
+      "phone": "0932132131",
+      "email": "nam@gmail.com",
+      "address": "Da Nang",
+      "type": {
+        "id": 3,
+        "name": "Gold"
+      },
+      "id": 14
+    },
+    {
+      "id": 16,
+      "name": "Long",
+      "birthDay": "2009-09-27",
+      "gender": "Nam",
+      "idCard": "331232132",
+      "phone": "0931232212",
+      "email": "email@email.email",
+      "address": "Đà Nẵng",
+      "type": {
+        "id": 3,
+        "name": "Gold"
       }
     }
   ],
@@ -198,13 +277,16 @@
       "cost": "499",
       "maxPeople": 4,
       "rentType": {
+        "id": 1,
         "name": "Giờ"
       },
       "facilityType": {
+        "id": 1,
         "name": "Villa"
       },
       "standardRoom": {
         "name": {
+          "id": 1,
           "name": "VIP"
         }
       },
@@ -221,12 +303,15 @@
       "cost": 500,
       "maxPeople": 4,
       "rentType": {
+        "id": 2,
         "name": "Ngày"
       },
       "facilityType": {
+        "id": 1,
         "name": "Villa"
       },
       "standardRoom": {
+        "id": 1,
         "name": "VIP"
       },
       "otherDescription": "Có hồ bơi",
@@ -242,15 +327,16 @@
       "cost": "699",
       "maxPeople": 4,
       "rentType": {
+        "id": 3,
         "name": "Tháng"
       },
       "facilityType": {
+        "id": 1,
         "name": "Villa"
       },
       "standardRoom": {
-        "name": {
-          "name": "VIP"
-        }
+        "id": 1,
+        "name": "VIP"
       },
       "otherDescription": "Có hồ bơi",
       "poolArea": 60,
@@ -260,17 +346,20 @@
     },
     {
       "id": 4,
-      "name": "Phòng suite hướng biển",
+      "name": "Phong Suite",
       "area": 300,
       "cost": 500,
       "maxPeople": 4,
       "rentType": {
-        "name": "Ngày"
+        "id": 1,
+        "name": "Giờ"
       },
       "facilityType": {
-        "name": "Villa"
+        "id": 2,
+        "name": "House"
       },
       "standardRoom": {
+        "id": 1,
         "name": "VIP"
       },
       "otherDescription": "Có hồ bơi",
@@ -286,12 +375,15 @@
       "cost": 500,
       "maxPeople": 4,
       "rentType": {
+        "id": 2,
         "name": "Ngày"
       },
       "facilityType": {
+        "id": 1,
         "name": "Villa"
       },
       "standardRoom": {
+        "id": 1,
         "name": "VIP"
       },
       "otherDescription": "Có hồ bơi",
@@ -307,12 +399,15 @@
       "cost": 500,
       "maxPeople": 4,
       "rentType": {
+        "id": 2,
         "name": "Ngày"
       },
       "facilityType": {
+        "id": 1,
         "name": "Villa"
       },
       "standardRoom": {
+        "id": 1,
         "name": "VIP"
       },
       "otherDescription": "Có hồ bơi",
@@ -328,12 +423,15 @@
       "cost": 500,
       "maxPeople": 4,
       "rentType": {
+        "id": 2,
         "name": "Ngày"
       },
       "facilityType": {
+        "id": 1,
         "name": "Villa"
       },
       "standardRoom": {
+        "id": 1,
         "name": "VIP"
       },
       "otherDescription": "Có hồ bơi",
@@ -349,12 +447,15 @@
       "cost": 500,
       "maxPeople": 4,
       "rentType": {
+        "id": 2,
         "name": "Ngày"
       },
       "facilityType": {
+        "id": 1,
         "name": "Villa"
       },
       "standardRoom": {
+        "id": 1,
         "name": "VIP"
       },
       "otherDescription": "Có hồ bơi",
@@ -370,12 +471,15 @@
       "cost": 500,
       "maxPeople": 4,
       "rentType": {
+        "id": 2,
         "name": "Ngày"
       },
       "facilityType": {
+        "id": 1,
         "name": "Villa"
       },
       "standardRoom": {
+        "id": 1,
         "name": "VIP"
       },
       "otherDescription": "Có hồ bơi",
@@ -391,12 +495,15 @@
       "cost": 500,
       "maxPeople": 4,
       "rentType": {
+        "id": 2,
         "name": "Ngày"
       },
       "facilityType": {
+        "id": 1,
         "name": "Villa"
       },
       "standardRoom": {
+        "id": 1,
         "name": "VIP"
       },
       "otherDescription": "Có hồ bơi",
@@ -412,12 +519,15 @@
       "cost": 500,
       "maxPeople": 4,
       "rentType": {
+        "id": 2,
         "name": "Ngày"
       },
       "facilityType": {
+        "id": 1,
         "name": "Villa"
       },
       "standardRoom": {
+        "id": 1,
         "name": "VIP"
       },
       "otherDescription": "Có hồ bơi",
@@ -433,12 +543,15 @@
       "cost": 600,
       "maxPeople": 4,
       "rentType": {
+        "id": 2,
         "name": "Ngày"
       },
       "facilityType": {
+        "id": 1,
         "name": "Villa"
       },
       "standardRoom": {
+        "id": 1,
         "name": "VIP"
       },
       "otherDescription": "Có hồ bơi",
@@ -453,13 +566,16 @@
       "cost": "499",
       "maxPeople": "4",
       "rentType": {
+        "id": 2,
         "name": "Ngày"
       },
       "facilityType": {
+        "id": 1,
         "name": "Room"
       },
       "standardRoom": {
-        "name": null
+        "id": 1,
+        "name": "VIP"
       },
       "otherDescription": null,
       "poolArea": "",
@@ -473,9 +589,11 @@
     {
       "id": 1,
       "customer": {
+        "id": 1,
         "name": "Lê Văn Nam"
       },
       "facility": {
+        "id": 1,
         "name": "Phòng suite hướng biển"
       },
       "startDate": "08/12/2022",
@@ -485,9 +603,11 @@
     {
       "id": 2,
       "customer": {
+        "id": 1,
         "name": "Lê Văn Nam"
       },
       "facility": {
+        "id": 1,
         "name": "Phòng suite hướng biển"
       },
       "startDate": "08/12/2022",
@@ -497,9 +617,11 @@
     {
       "id": 3,
       "customer": {
+        "id": 1,
         "name": "Lê Văn Nam"
       },
       "facility": {
+        "id": 1,
         "name": "Phòng suite hướng biển"
       },
       "startDate": "08/12/2022",
@@ -509,9 +631,11 @@
     {
       "id": 4,
       "customer": {
+        "id": 1,
         "name": "Lê Văn Nam"
       },
       "facility": {
+        "id": 1,
         "name": "Phòng suite hướng biển"
       },
       "startDate": "08/12/2022",
@@ -521,9 +645,11 @@
     {
       "id": 5,
       "customer": {
+        "id": 1,
         "name": "Lê Văn Nam"
       },
       "facility": {
+        "id": 1,
         "name": "Phòng suite hướng biển"
       },
       "startDate": "08/12/2022",
@@ -533,9 +659,11 @@
     {
       "id": 6,
       "customer": {
+        "id": 1,
         "name": "Lê Văn Nam"
       },
       "facility": {
+        "id": 1,
         "name": "Phòng suite hướng biển"
       },
       "startDate": "08/12/2022",
@@ -545,9 +673,11 @@
     {
       "id": 7,
       "customer": {
+        "id": 1,
         "name": "Lê Văn Nam"
       },
       "facility": {
+        "id": 1,
         "name": "Phòng suite hướng biển"
       },
       "startDate": "08/12/2022",
@@ -556,9 +686,11 @@
     },
     {
       "customer": {
+        "id": 6,
         "name": "Lê Thị Linh"
       },
       "facility": {
+        "id": 1,
         "name": "Phòng suite hướng biển"
       },
       "startDate": "2022-08-04",
@@ -568,15 +700,31 @@
     },
     {
       "customer": {
+        "id": 6,
         "name": "Lê Thị Linh"
       },
       "facility": {
+        "id": 1,
         "name": "Phòng suite hướng biển"
       },
       "startDate": "2022-08-11",
       "endDate": "2022-08-19",
       "deposit": 599,
       "id": 9
+    },
+    {
+      "customer": {
+        "id": 3,
+        "name": "Lê Văn Bình"
+      },
+      "facility": {
+        "id": 1,
+        "name": "Phòng suite hướng biển"
+      },
+      "startDate": "2019-10-29",
+      "endDate": "2021-09-28",
+      "deposit": 500,
+      "id": 10
     }
   ]
 }

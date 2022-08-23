@@ -21,4 +21,8 @@ export class ContractService {
   save(contract: Contract): Observable<Contract> {
     return this.http.post<Contract>(API_URL + '/contracts', contract);
   }
+
+  find(keyword: string): Observable<Contract[]> {
+    return this.http.get<Contract[]>(API_URL + '/contracts?q=' + keyword);
+  }
 }

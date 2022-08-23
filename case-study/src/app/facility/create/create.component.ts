@@ -8,6 +8,7 @@ import {RentType} from "../../model/rent-type";
 import {RentTypeService} from "../rent-type.service";
 import {FacilityTypeService} from "../facility-type.service";
 import {StandardRoomService} from "../standard-room.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-create',
@@ -39,7 +40,8 @@ export class CreateComponent implements OnInit {
               private facilityTypeService: FacilityTypeService,
               private rentTypeService: RentTypeService,
               private standardRoomService: StandardRoomService,
-              private router: Router) {
+              private router: Router,
+              private toast: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -69,23 +71,35 @@ export class CreateComponent implements OnInit {
   submit() {
     const facility = this.facilityForm.value;
 
-    facility.rentType = {
-      name: facility.rentType
-    };
+    this.rentTypeService.findById(facility.rentType).subscribe(rentType => {
 
-    facility.facilityType = {
-      name: facility.facilityType
-    };
+      this.facilityTypeService.findById(facility.facilityType).subscribe(facilityType => {
 
-    facility.standardRoom = {
-      name: facility.standardRoom
-    };
+        this.standardRoomService.findById(facility.standardRoom).subscribe(standardRoom => {
 
-    this.facilityService.save(facility).subscribe(() => {
-      alert('Tạo mới thành công');
-      this.facilityForm.reset();
-      this.router.navigate(['/facility/list']);
-    }, e => console.log(e));
+          facility.rentType = {
+            id: rentType.id,
+            name: rentType.name
+          };
+
+          facility.facilityType = {
+            id: facilityType.id,
+            name: facilityType.name
+          };
+
+          facility.standardRoom = {
+            id: standardRoom.id,
+            name: standardRoom.name
+          };
+
+          this.facilityService.save(facility).subscribe(() => {
+            this.toast.success('Thêm mới thành công!', "Thông báo");
+            this.router.navigate(['/facility/list']);
+          }, e => console.log(e));
+        })
+      })
+    })
+
   }
 
   type = "";

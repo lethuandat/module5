@@ -6,6 +6,7 @@ import {Customer} from "../../model/customer";
 import {CustomerService} from "../../customer/customer.service";
 import {Facility} from "../../model/facility";
 import {FacilityService} from "../../facility/facility.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-create',
@@ -29,7 +30,8 @@ export class CreateComponent implements OnInit {
   constructor(private facilityService: FacilityService,
               private customerService: CustomerService,
               private contractService: ContractService,
-              private router: Router) {
+              private router: Router,
+              private toast: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -52,19 +54,28 @@ export class CreateComponent implements OnInit {
   submit() {
     const contract = this.contractForm.value;
 
-    contract.customer = {
-      name: contract.customer
-    };
+    this.customerService.findById(contract.customer).subscribe(customer => {
 
-    contract.facility = {
-      name: contract.facility
-    };
+      this.facilityService.findById(contract.facility).subscribe(facility => {
 
-    this.contractService.save(contract).subscribe(() => {
-      alert('Tạo mới thành công');
-      this.contractForm.reset();
-      this.router.navigate(['/contract/list']);
-    }, e => console.log(e));
+        contract.customer = {
+          id: customer.id,
+          name: customer.name
+        }
+
+        contract.facility = {
+          id: facility.id,
+          name: facility.name
+        }
+
+        this.contractService.save(contract).subscribe(() => {
+          this.toast.success('Thêm mới thành công!', "Thông báo");
+          this.router.navigate(['/contract/list']);
+        }, e => console.log(e));
+
+      })
+    });
+
   }
 
   validationMessage = {

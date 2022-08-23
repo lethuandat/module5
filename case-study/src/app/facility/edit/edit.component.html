@@ -62,7 +62,7 @@
                   <td>
                     <select class="form-select" formControlName="facilityType" (change)="getType($event.target.value)">
                       <option value="" disabled>--Chọn loại dịch vụ--</option>
-                      <option *ngFor="let item of facilityTypes" [ngValue]="item.name" [selected]>{{item.name}}</option>
+                      <option *ngFor="let item of facilityTypes" [ngValue]="item.id" [selected]>{{item.name}}</option>
                     </select>
                     <div class="text-danger" *ngFor="let validation of validationMessage.facilityType">
                       <span
@@ -119,7 +119,7 @@
                   <td>
                     <select class="form-select" formControlName="rentType">
                       <option disabled>--Chọn kiểu thuê--</option>
-                      <option *ngFor="let item of rentTypes" [ngValue]="item.name">{{item.name}}</option>
+                      <option *ngFor="let item of rentTypes" [ngValue]="item.id">{{item.name}}</option>
                     </select>
                     <div class="text-danger" *ngFor="let validation of validationMessage.rentType">
                       <span
@@ -133,22 +133,22 @@
                     <input type="text" class="form-control" formControlName="image">
                   </td>
                 </tr>
-                <tr *ngIf="type === 'Villa' || type === 'House'" type="hidden" id="standardRoom">
+                <tr *ngIf="type === '1: 1' || type === '2: 2'" id="standardRoom">
                   <th>Loại phòng:</th>
                   <td>
                     <select class="form-select" formControlName="standardRoom">
                       <option disabled>--Chọn loại phòng--</option>
-                      <option *ngFor="let item of standardRooms" [ngValue]="item.name">{{item.name}}</option>
+                      <option *ngFor="let item of standardRooms" [ngValue]="item.id">{{item.name}}</option>
                     </select>
                   </td>
                 </tr>
-                <tr *ngIf="type === 'Villa' || type === 'House'" type="hidden" id="otherDescription">
+                <tr *ngIf="type === '1: 1' || type === '2: 2'" id="otherDescription">
                   <th>Tiện nghi khác:</th>
                   <td>
                     <input class="form-control" formControlName="otherDescription" type="text"/>
                   </td>
                 </tr>
-                <tr *ngIf="type === 'Villa'" type="hidden" id="poolArea">
+                <tr *ngIf="type === '1: 1'" id="poolArea">
                   <th>Diện tích hồ bơi:</th>
                   <td>
                     <input class="form-control" formControlName="poolArea" type="text"/>
@@ -158,7 +158,7 @@
                     </div>
                   </td>
                 </tr>
-                <tr *ngIf="type === 'Villa' || type === 'House'" type="hidden" id="numberFloor">
+                <tr *ngIf="type === '1: 1' || type === '2: 2'" id="numberFloor">
                   <th>Số tầng:</th>
                   <td>
                     <input class="form-control" formControlName="numberFloor" type="text"/>
@@ -168,7 +168,7 @@
                     </div>
                   </td>
                 </tr>
-                <tr *ngIf="type === 'Room'" type="hidden" id="facilityFree">
+                <tr *ngIf="type === '3: 3'" id="facilityFree">
                   <th>Dịch vụ miễn phí đi kèm:</th>
                   <td>
                     <input class="form-control" formControlName="facilityFree" type="text"/>
@@ -190,7 +190,7 @@
                     </a>
                   </td>
                   <td align="left">
-                    <button class="btn btn-outline-primary" type="submit">
+                    <button [disabled]="facilityForm.invalid" class="btn btn-outline-primary" type="submit">
                       Cập nhật
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                            fill="currentColor" class="bi bi-save" viewBox="0 0 16 16">

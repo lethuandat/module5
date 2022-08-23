@@ -8,6 +8,7 @@ import {FooterComponent} from './footer/footer.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     ReactiveFormsModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule
   ],
   providers: [],
   bootstrap: [AppComponent]

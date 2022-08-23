@@ -56,7 +56,7 @@
                   <td>
                     <select class="form-select" formControlName="facility">
                       <option [defaultSelected]="contractForm" value="" disabled>--Chọn dịch vụ--</option>
-                      <option *ngFor="let facility of facilities" [ngValue]="facility.name">{{facility.name}}</option>
+                      <option *ngFor="let facility of facilities" [ngValue]="facility.id">{{facility.name}}</option>
                     </select>
                     <div class="text-danger" *ngFor="let validation of validationMessage.facility">
                       <span *ngIf="contractForm.get('facility').hasError(validation.type) && contractForm.get('facility').touched">{{validation.message}}</span>
@@ -68,7 +68,7 @@
                   <td>
                     <select class="form-select" formControlName="customer">
                       <option [defaultSelected]="contractForm" value="">--Chọn khách hàng--</option>
-                      <option *ngFor="let customer of customers" [ngValue]="customer.name">{{customer.name}}</option>
+                      <option *ngFor="let customer of customers" [ngValue]="customer.id">{{customer.name}}</option>
                     </select>
                     <div class="text-danger" *ngFor="let validation of validationMessage.customer">
                       <span *ngIf="contractForm.get('customer').hasError(validation.type) && contractForm.get('customer').touched">{{validation.message}}</span>
@@ -121,7 +121,7 @@
                     </a>
                   </td>
                   <td align="left">
-                    <button class="btn btn-outline-primary">
+                    <button [disabled]="contractForm.invalid" class="btn btn-outline-primary">
                       Tạo mới
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                            fill="currentColor" class="bi bi-save" viewBox="0 0 16 16">

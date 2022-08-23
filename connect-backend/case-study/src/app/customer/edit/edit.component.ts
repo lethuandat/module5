@@ -5,6 +5,7 @@ import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {CustomerType} from "../../model/customer-type";
 import {CustomerTypeService} from "../customer-type.service";
 import {checkBirthDay} from "../../validate/check-birth-day";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-edit',
@@ -14,57 +15,48 @@ import {checkBirthDay} from "../../validate/check-birth-day";
 export class EditComponent implements OnInit {
 
   customerForm: FormGroup;
+  customerTypes: CustomerType[] = [];
+  customerTypeSelected: CustomerType;
   id: number;
 
   constructor(
     private customerService: CustomerService,
     private customerTypeService: CustomerTypeService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
-  ) {
+    private router: Router,
+    private toast: ToastrService) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
-      this.findById(this.id);
-    });
-  }
-
-  customerTypes: CustomerType[] = [];
-
-  getCustomerType() {
-    this.customerTypeService.getAll().subscribe(customerTypes => {
-      this.customerTypes = customerTypes;
-    });
-  }
-
-  ngOnInit(): void {
-    this.getCustomerType();
-  }
-
-  compareWithId(item1, item2) {
-    return item1 && item2 && item1.id == item2.id;
-  };
-
-  findById(id: number) {
-    return this.customerService.findById(id).subscribe(customer => {
-      this.customerForm = new FormGroup({
-        id: new FormControl(customer.id),
-        name: new FormControl(customer.name, [Validators.required, Validators.pattern("^[a-zA-Zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+(\\s[a-zA-Zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+)*$")]),
-        birthDay: new FormControl(customer.birthDay, [Validators.required, checkBirthDay]),
-        gender: new FormControl(customer.gender, [Validators.required]),
-        idCard: new FormControl(customer.idCard, [Validators.required, Validators.pattern("\\d{9}")]),
-        phone: new FormControl(customer.phone, [Validators.required, Validators.pattern("^(0|\\(\\+84\\))\\d{9}$")]),
-        email: new FormControl(customer.email, [Validators.required, Validators.email]),
-        address: new FormControl(customer.address, [Validators.required]),
-        type: new FormControl(customer.customerType, [Validators.required]),
+      this.customerTypeService.getAll().subscribe(customerTypes => {
+        this.customerService.findById(this.id).subscribe(customer => {
+          console.log(customer)
+          this.customerTypes = customerTypes;
+          this.customerTypeSelected = this.customerTypes[0];
+          this.customerForm = new FormGroup({
+            id: new FormControl(customer.id),
+            name: new FormControl(customer.name, [Validators.required, Validators.pattern("^[a-zA-Zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+(\\s[a-zA-Zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+)*$")]),
+            birthDay: new FormControl(customer.birthDay, [Validators.required, checkBirthDay]),
+            gender: new FormControl(customer.gender, [Validators.required]),
+            idCard: new FormControl(customer.idCard, [Validators.required, Validators.pattern("\\d{9}")]),
+            phone: new FormControl(customer.phone, [Validators.required, Validators.pattern("^(0|\\(\\+84\\))\\d{9}$")]),
+            email: new FormControl(customer.email, [Validators.required, Validators.email]),
+            address: new FormControl(customer.address, [Validators.required]),
+            type: new FormControl(this.customerTypeSelected, [Validators.required]),
+          });
+        });
       });
     });
   }
 
+  ngOnInit(): void {
+  }
+
   update(id: number) {
     const customer = this.customerForm.value;
+    customer.customerType = this.customerTypeSelected;
 
     this.customerService.update(id, customer).subscribe(() => {
-      alert('Cập nhật thành công');
+      this.toast.info("Cập nhật thành công", "Thông báo");
       this.router.navigate(['/customer/list']);
     });
   }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Customer} from "../../model/customer";
 import {CustomerService} from "../customer.service";
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-list',
@@ -18,7 +19,8 @@ export class ListComponent implements OnInit {
   pageSize = 5;
 
   constructor(private customerService: CustomerService,
-              private modalService: NgbModal) {
+              private modalService: NgbModal,
+              private toast: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -43,6 +45,7 @@ export class ListComponent implements OnInit {
   onDelete() {
     this.customerService.delete(this.deleteId).subscribe(() => {
       this.ngOnInit();
+      this.toast.error("Xóa thành công", "Thông báo");
       this.modalService.dismissAll();
     }, e => console.log(e));
   }

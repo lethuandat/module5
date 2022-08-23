@@ -4,6 +4,7 @@ import {CustomerService} from "../customer.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {CustomerType} from "../../model/customer-type";
 import {CustomerTypeService} from "../customer-type.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-edit',
@@ -19,7 +20,8 @@ export class EditComponent implements OnInit {
     private customerService: CustomerService,
     private customerTypeService: CustomerTypeService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toast: ToastrService
   ) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
@@ -50,20 +52,26 @@ export class EditComponent implements OnInit {
         phone: new FormControl(customer.phone, [Validators.required, Validators.pattern("^(0|\\(\\+84\\))\\d{9}$")]),
         email: new FormControl(customer.email, [Validators.required, Validators.email]),
         address: new FormControl(customer.address, [Validators.required]),
-        type: new FormControl(customer.type, [Validators.required]),
+        type: new FormControl(customer.type.id, [Validators.required]),
       });
     });
   }
 
   update(id: number) {
     const customer = this.customerForm.value;
-    customer.type = {
-      name: customer.type
-    };
-    this.customerService.update(id, customer).subscribe(() => {
-      alert('Cập nhật thành công');
-      this.router.navigate(['/customer/list']);
-    });
+
+    this.customerTypeService.findById(customer.type).subscribe(customerType => {
+        customer.type = {
+          id: customerType.id,
+          name: customerType.name
+        }
+        this.customerService.update(id, customer).subscribe(() => {
+          this.toast.info('Cập nhật thành công!', "Thông báo");
+          this.router.navigate(['/customer/list']);
+        });
+      }
+    );
+
   }
 
   validationMessage = {

@@ -101,7 +101,7 @@
           <tr
             *ngFor="let customer of customers | slice: (page - 1) * pageSize : (page - 1) * pageSize + pageSize ; index as i">
             <td>{{i + 1 + (page - 1) * pageSize}}</td>
-            <td>{{customer.customerType.customerTypeName == null ? 'zzz' : customer.customerType.customerTypeName}}</td>
+            <td>{{customer.customerType.customerTypeName}}</td>
             <td>{{customer.name}}</td>
             <td>{{customer.birthDay | date: 'dd/MM/yyyy'}}</td>
             <td>{{customer.gender}}</td>

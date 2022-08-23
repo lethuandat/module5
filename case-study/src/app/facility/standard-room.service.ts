@@ -17,4 +17,8 @@ export class StandardRoomService {
   getAll(): Observable<StandardRoom[]> {
     return this.http.get<StandardRoom[]>(API_URL + '/standardRooms');
   }
+
+  findById(id: number): Observable<StandardRoom> {
+    return this.http.get<StandardRoom>(`${API_URL}/standardRooms/${id}`);
+  }
 }

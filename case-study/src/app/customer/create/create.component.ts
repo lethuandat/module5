@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {CustomerTypeService} from "../customer-type.service";
 import {CustomerType} from "../../model/customer-type";
 import {checkBirthDay} from "../../validate/check-birth-day";
+import {ToastrService} from "ngx-toastr";
 
 
 @Component({
@@ -29,25 +30,30 @@ export class CreateComponent implements OnInit {
 
   constructor(private customerService: CustomerService,
               private customerTypeService: CustomerTypeService,
-              private router: Router) {
+              private router: Router,
+              private toast: ToastrService) {
   }
 
   ngOnInit(): void {
     this.getCustomerType();
   }
 
+
+
   submit() {
     const customer = this.customerForm.value;
 
-    customer.type = {
-      name: customer.type
-    };
-
-    this.customerService.save(customer).subscribe(() => {
-      alert('Tạo mới thành công');
-      this.customerForm.reset();
-      this.router.navigate(['/customer/list']);
-    }, e => console.log(e));
+    this.customerTypeService.findById(customer.type).subscribe(customerType => {
+        customer.type = {
+          id: customerType.id,
+          name: customerType.name
+        }
+        this.customerService.save(customer).subscribe(() => {
+          this.toast.success('Thêm mới thành công!', "Thông báo");
+          this.router.navigate(['/customer/list']);
+        }, e => console.log(e));
+      }
+    );
   }
 
 

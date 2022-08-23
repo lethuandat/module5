@@ -13,6 +13,7 @@ export class ListComponent implements OnInit {
 
   page = 1;
   pageSize = 5;
+  keyword: string;
 
   constructor(private contractService: ContractService) {
   }
@@ -25,5 +26,12 @@ export class ListComponent implements OnInit {
     this.contractService.getAll().subscribe(contracts => {
       this.contracts = contracts;
     });
+  }
+
+  search() {
+    this.contractService.find(this.keyword).subscribe(contracts => {
+      this.contracts = contracts;
+      this.keyword = "";
+    })
   }
 }

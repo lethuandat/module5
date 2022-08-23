@@ -135,9 +135,9 @@
                 <tr>
                   <th>Loại khách hàng:</th>
                   <td>
-                    <select class="form-select" formControlName="type" [compareWith]="compareWithId">
+                    <select class="form-select" formControlName="type">
                       <option disabled>--Chọn loại khách hàng--</option>
-                      <option *ngFor="let customerType of customerTypes" [ngValue]="customerType">{{customerType.customerTypeName}}</option>
+                      <option *ngFor="let customerType of customerTypes" [ngValue]="customerTypeSelected">{{customerType.customerTypeName}}</option>
                     </select>
                     <div class="text-danger" *ngFor="let validation of validationMessage.type">
                       <span

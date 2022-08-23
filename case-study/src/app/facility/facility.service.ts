@@ -33,4 +33,8 @@ export class FacilityService {
   delete(id: number): Observable<Facility> {
     return this.http.delete<Facility>(`${API_URL}/facilities/${id}`);
   }
+
+  find(keyword: string): Observable<Facility[]> {
+    return this.http.get<Facility[]>(API_URL + '/facilities?q=' + keyword);
+  }
 }

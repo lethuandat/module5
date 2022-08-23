@@ -2,6 +2,7 @@ import {AbstractControl} from '@angular/forms';
 
 export function checkBirthDay(control: AbstractControl) {
   const birthDay = new Date(control.value);
+
   if (dateDiff(birthDay, new Date()) < 1096 || dateDiff(birthDay, new Date()) > 36503) {
     return {checkAge: true};
   }
