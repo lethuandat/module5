@@ -104,7 +104,7 @@
             <td>{{customer.customerType.customerTypeName}}</td>
             <td>{{customer.name}}</td>
             <td>{{customer.birthDay | date: 'dd/MM/yyyy'}}</td>
-            <td>{{customer.gender}}</td>
+            <td>{{customer.gender == 1 ? 'Nam' : 'Nữ'}}</td>
             <td>{{customer.idCard}}</td>
             <td>{{customer.phone}}</td>
             <td>{{customer.email}}</td>

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ContractService} from "../contract.service";
 import {Router} from "@angular/router";
 import {Customer} from "../../model/customer";
@@ -18,10 +18,10 @@ export class CreateComponent implements OnInit {
   contractForm: FormGroup = new FormGroup({
     customer: new FormControl('', [Validators.required]),
     facility: new FormControl('', [Validators.required]),
-    startDate: new FormControl('', [Validators.required]),
-    endDate: new FormControl('', [Validators.required]),
+    startDate: new FormControl('', [Validators.required, this.checkDateStart]),
+    endDate: new FormControl('', [Validators.required, this.checkDateStop]),
     deposit: new FormControl('', [Validators.required, Validators.pattern("^[1-9]+\\d*")]),
-  });
+  }, this.checkDate);
 
   customers: Customer[] = [];
 
@@ -39,19 +39,19 @@ export class CreateComponent implements OnInit {
     this.getFacility();
   }
 
-  getCustomer() {
+  getCustomer(): void {
     this.customerService.getAll().subscribe(customers => {
       this.customers = customers;
     });
   }
 
-  getFacility() {
+  getFacility(): void {
     this.facilityService.getAll().subscribe(facilities => {
       this.facilities = facilities;
     });
   }
 
-  submit() {
+  submit(): void {
     const contract = this.contractForm.value;
 
     this.customerService.findById(contract.customer).subscribe(customer => {
@@ -78,6 +78,41 @@ export class CreateComponent implements OnInit {
 
   }
 
+  checkDateStart(contractDate: AbstractControl) {
+    const now = new Date();
+
+    const dateStart = new Date(contractDate.value);
+
+    if (dateDiff(dateStart, now) <= 0) {
+      console.log(dateDiff(dateStart, now))
+      return {dateStartError: true};
+    }
+  }
+
+  checkDateStop(contractDate: AbstractControl) {
+    const now = new Date();
+
+    const dateStop = new Date(contractDate.value);
+
+    if (dateDiff(dateStop, now) <= 0) {
+      return {dateStopError: true};
+    }
+  }
+
+  checkDate(contractDate: AbstractControl) {
+    const dateStart = new Date(contractDate.value.startDate);
+
+    const dateStop = new Date(contractDate.value.endDate);
+
+
+    if (dateDiff(dateStart, dateStop) < 0) {
+      return {dateContractError: true};
+    }
+
+    return null;
+  }
+
+
   validationMessage = {
     customer: [
       {type: 'required', message: '*Vui lòng chọn khách hàng'},
@@ -96,5 +131,8 @@ export class CreateComponent implements OnInit {
       {type: 'pattern', message: '*Vui lòng số > 0'},
     ],
   }
+}
 
+function dateDiff(first, second) {
+  return Math.round((second - first) / (1000 * 60 * 60 * 24));
 }

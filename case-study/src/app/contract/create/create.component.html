@@ -59,7 +59,8 @@
                       <option *ngFor="let facility of facilities" [ngValue]="facility.id">{{facility.name}}</option>
                     </select>
                     <div class="text-danger" *ngFor="let validation of validationMessage.facility">
-                      <span *ngIf="contractForm.get('facility').hasError(validation.type) && contractForm.get('facility').touched">{{validation.message}}</span>
+                      <span
+                        *ngIf="contractForm.get('facility').hasError(validation.type) && contractForm.get('facility').touched">{{validation.message}}</span>
                     </div>
                   </td>
                 </tr>
@@ -71,7 +72,8 @@
                       <option *ngFor="let customer of customers" [ngValue]="customer.id">{{customer.name}}</option>
                     </select>
                     <div class="text-danger" *ngFor="let validation of validationMessage.customer">
-                      <span *ngIf="contractForm.get('customer').hasError(validation.type) && contractForm.get('customer').touched">{{validation.message}}</span>
+                      <span
+                        *ngIf="contractForm.get('customer').hasError(validation.type) && contractForm.get('customer').touched">{{validation.message}}</span>
                     </div>
                   </td>
                 </tr>
@@ -80,7 +82,12 @@
                   <td>
                     <input type="date" class="form-control" formControlName="startDate">
                     <div class="text-danger" *ngFor="let validation of validationMessage.startDate">
-                      <span *ngIf="contractForm.get('startDate').hasError(validation.type) && contractForm.get('startDate').touched">{{validation.message}}</span>
+                      <span
+                        *ngIf="contractForm.get('startDate').hasError(validation.type) && contractForm.get('startDate').touched">{{validation.message}}</span>
+                      <span
+                        *ngIf="contractForm.get('startDate').hasError('dateStartError') && contractForm.get('startDate').touched && contractForm.get('startDate').dirty">*Ngày làm hợp đồng không được lớn hơn ngày hiện tại</span>
+                      <span
+                        *ngIf="contractForm.hasError('dateContractError') && contractForm.controls.startDate.touched && contractForm.controls.startDate.dirty">*Ngày làm hợp đồng không được lớn hơn ngày kết thúc hợp đồng</span>
                     </div>
                   </td>
 
@@ -90,7 +97,12 @@
                   <td>
                     <input type="date" class="form-control" formControlName="endDate">
                     <div class="text-danger" *ngFor="let validation of validationMessage.endDate">
-                      <span *ngIf="contractForm.get('endDate').hasError(validation.type) && contractForm.get('endDate').touched">{{validation.message}}</span>
+                      <span
+                        *ngIf="contractForm.get('endDate').hasError(validation.type) && contractForm.get('endDate').touched">{{validation.message}}</span>
+                      <span
+                        *ngIf="contractForm.get('endDate').hasError('dateStopError') && contractForm.get('endDate').touched && contractForm.get('endDate').dirty">*Ngày kết thúc hợp đồng không được lớn hơn ngày hiện tại</span>
+                      <span
+                        *ngIf="contractForm.hasError('dateContractError') && contractForm.controls.endDate.touched && contractForm.controls.endDate.dirty">*Ngày kết thúc hợp đồng không được nhỏ hơn ngày làm hợp đồng</span>
                     </div>
                   </td>
 
@@ -100,7 +112,8 @@
                   <td>
                     <input type="number" class="form-control" formControlName="deposit">
                     <div class="text-danger" *ngFor="let validation of validationMessage.deposit">
-                      <span *ngIf="contractForm.get('deposit').hasError(validation.type) && contractForm.get('deposit').touched">{{validation.message}}</span>
+                      <span
+                        *ngIf="contractForm.get('deposit').hasError(validation.type) && contractForm.get('deposit').touched">{{validation.message}}</span>
                     </div>
                   </td>
                 </tr>

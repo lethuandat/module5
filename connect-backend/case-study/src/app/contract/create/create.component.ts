@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ContractService} from "../contract.service";
 import {Router} from "@angular/router";
 import {Customer} from "../../model/customer";
@@ -37,19 +37,19 @@ export class CreateComponent implements OnInit {
     this.getFacility();
   }
 
-  getCustomer() {
+  getCustomer(): void {
     this.customerService.getAll().subscribe(customers => {
       this.customers = customers;
     });
   }
 
-  getFacility() {
+  getFacility(): void {
     this.facilityService.getAll().subscribe(facilities => {
       this.facilities = facilities;
     });
   }
 
-  submit() {
+  submit(): void {
     const contract = this.contractForm.value;
 
     contract.customer = {
