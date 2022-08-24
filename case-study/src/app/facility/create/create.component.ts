@@ -29,7 +29,7 @@ export class CreateComponent implements OnInit {
     poolArea: new FormControl('', [Validators.pattern("^[1-9]+\\d*")]),
     numberFloor: new FormControl('', [Validators.pattern("^[1-9]+\\d*")]),
     facilityFree: new FormControl(),
-    image: new FormControl('../../../../assets/images/')
+    image: new FormControl('../../../../assets/images/', [Validators.required])
   });
 
   rentTypes: RentType[] = [];
@@ -137,6 +137,9 @@ export class CreateComponent implements OnInit {
     numberFloor: [
       {type: 'pattern', message: '*Số tầng phải > 0'}
     ],
+    image: [
+      {type: 'pattern', message: '*Vui lòng nhập link ảnh'}
+    ]
   }
 
 }

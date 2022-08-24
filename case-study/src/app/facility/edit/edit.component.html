@@ -64,6 +64,11 @@
                       <option value="" disabled>--Chọn loại dịch vụ--</option>
                       <option *ngFor="let item of facilityTypes" [ngValue]="item.id" [selected]>{{item.name}}</option>
                     </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
                     <div class="text-danger" *ngFor="let validation of validationMessage.facilityType">
                       <span
                         *ngIf="facilityForm.get('facilityType').hasError(validation.type) && facilityForm.get('facilityType').touched">{{validation.message}}</span>
@@ -74,45 +79,67 @@
                   <th>Tên dịch vụ:</th>
                   <td>
                     <input type="text" formControlName="name" class="form-control">
+                  </td>
+
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
                     <div class="text-danger" *ngFor="let validation of validationMessage.name">
                       <span
                         *ngIf="facilityForm.get('name').hasError(validation.type) && facilityForm.get('name').touched">{{validation.message}}</span>
                     </div>
                   </td>
-
                 </tr>
                 <tr>
                   <th>Diện tích:</th>
                   <td>
                     <input type="text" formControlName="area" class="form-control">
+                  </td>
+
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
                     <div class="text-danger" *ngFor="let validation of validationMessage.area">
                       <span
                         *ngIf="facilityForm.get('area').hasError(validation.type) && facilityForm.get('area').touched">{{validation.message}}</span>
                     </div>
                   </td>
-
                 </tr>
                 <tr>
                   <th>Giá thuê:</th>
                   <td>
                     <input type="text" formControlName="cost" class="form-control">
+
+                  </td>
+
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
                     <div class="text-danger" *ngFor="let validation of validationMessage.cost">
                       <span
                         *ngIf="facilityForm.get('cost').hasError(validation.type) && facilityForm.get('cost').touched">{{validation.message}}</span>
                     </div>
                   </td>
-
                 </tr>
                 <tr>
                   <th>Số người tối đa:</th>
                   <td>
                     <input type="text" formControlName="maxPeople" class="form-control">
+
+                  </td>
+
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
                     <div class="text-danger" *ngFor="let validation of validationMessage.maxPeople">
                       <span
                         *ngIf="facilityForm.get('maxPeople').hasError(validation.type) && facilityForm.get('maxPeople').touched">{{validation.message}}</span>
                     </div>
                   </td>
-
                 </tr>
                 <tr>
                   <th>Kiểu thuê:</th>
@@ -121,6 +148,12 @@
                       <option disabled>--Chọn kiểu thuê--</option>
                       <option *ngFor="let item of rentTypes" [ngValue]="item.id">{{item.name}}</option>
                     </select>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
                     <div class="text-danger" *ngFor="let validation of validationMessage.rentType">
                       <span
                         *ngIf="facilityForm.get('rentType').hasError(validation.type) && facilityForm.get('rentType').touched">{{validation.message}}</span>
@@ -131,6 +164,15 @@
                   <th>Link ảnh:</th>
                   <td>
                     <input type="text" class="form-control" formControlName="image">
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
+                    <div class="text-danger" *ngFor="let validation of validationMessage.image">
+                      <span
+                        *ngIf="facilityForm.get('image').hasError(validation.type) && facilityForm.get('image').touched">{{validation.message}}</span>
+                    </div>
                   </td>
                 </tr>
                 <tr *ngIf="type === '1: 1' || type === '2: 2'" id="standardRoom">
@@ -152,6 +194,11 @@
                   <th>Diện tích hồ bơi:</th>
                   <td>
                     <input class="form-control" formControlName="poolArea" type="text"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
                     <div class="text-danger" *ngFor="let validation of validationMessage.poolArea">
                       <span
                         *ngIf="facilityForm.get('poolArea').hasError(validation.type) && facilityForm.get('poolArea').touched">{{validation.message}}</span>
@@ -162,6 +209,11 @@
                   <th>Số tầng:</th>
                   <td>
                     <input class="form-control" formControlName="numberFloor" type="text"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
                     <div class="text-danger" *ngFor="let validation of validationMessage.numberFloor">
                       <span
                         *ngIf="facilityForm.get('numberFloor').hasError(validation.type) && facilityForm.get('numberFloor').touched">{{validation.message}}</span>

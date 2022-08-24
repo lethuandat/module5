@@ -1,19 +1,39 @@
-<h1>Danh sách sản phẩm</h1>
-<a routerLink="/product/create">Tạo mới sản phẩm</a>
-<table>
-  <tr>
-    <td>STT</td>
-    <td>Tên</td>
-    <td>Giá</td>
-    <td>Mô tả</td>
-    <td colspan="2"></td>
-  </tr>
-  <tr *ngFor="let product of products; index as i">
-    <td>{{i + 1}}</td>
-    <td>{{product.name}}</td>
-    <td>{{product.price}}</td>
-    <td>{{product.description}}</td>
-    <td><a [routerLink]="['/product/edit',product.id]">Edit</a></td>
-    <td><a [routerLink]="['/product/delete',product.id]">Delete</a></td>
-  </tr>
-</table>
+<div class="container">
+  <h1 align="center">Danh sách sản phẩm</h1>
+  <a class="btn btn-outline-primary" routerLink="/product/create">Tạo mới sản phẩm</a>
+  <div class="row">
+    <table class="table table-success mt-3">
+      <tr>
+        <th>STT</th>
+        <th>Tên</th>
+        <th>Giá</th>
+        <th>Mô tả</th>
+        <th colspan="2"></th>
+      </tr>
+      <tr *ngFor="let product of products; index as i">
+        <td>{{i + 1}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.description}}</td>
+        <td><a class="btn btn-outline-secondary" [routerLink]="['/product/edit',product.id]">Edit</a></td>
+        <td><a class="btn btn-outline-danger" (click)="openDelete(contentDelete, product)">Delete</a></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!--Delete Modal-->
+<ng-template #contentDelete let-modal>
+  <div class="modal-header bg-warning">
+    <h4 class="modal-title">Cảnh báo</h4>
+    <button type="button" class="btn btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    </button>
+  </div>
+  <div class="modal-body">
+    <span>Bạn có muốn xóa sản phẩm <span class="text-danger">{{deleteName}}</span> không?</span>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Hủy bỏ</button>
+    <button data-dismiss="modal" class="btn btn-outline-danger" (click)="onDelete()">Xóa</button>
+  </div>
+</ng-template>

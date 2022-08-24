@@ -16,9 +16,7 @@
     <td><a class="btn btn-outline-warning" [routerLink]="['/product/edit',product.id]">Edit</a></td>
     <td><a class="btn btn-outline-danger" (click)="openDelete(contentDelete, product)">Delete</a></td>
   </tr>
-</table>
-
-<!--Delete Modal-->
+</table><!--Delete Modal-->
 <ng-template #contentDelete let-modal>
   <div class="modal-header bg-warning">
     <h4 class="modal-title">Cảnh báo</h4>
@@ -33,3 +31,5 @@
     <button data-dismiss="modal" class="btn btn-outline-danger" (click)="onDelete()">Xóa</button>
   </div>
 </ng-template>
+
+
